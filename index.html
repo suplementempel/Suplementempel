@@ -478,6 +478,22 @@
         }
         }    
         
+        /* ═══════════════════════════════════════════════════════════════════
+           PROTEKSI VIDEO - NONAKTIFKAN LINK NAVIGASI
+        ═══════════════════════════════════════════════════════════════════ */
+
+        /* Proteksi WhatsApp links dan external links */
+        a[href^="https://wa.me"],
+        a[href^="http"],
+        a[href^="https"] {
+          pointer-events: none !important;
+          cursor: not-allowed !important;
+        }
+
+        /* Izinkan internal anchor links tapi hindari default behavior */
+        a[href^="#"] {
+          pointer-events: auto;
+        }
   
     </style>
 </head>
@@ -627,6 +643,7 @@
             title="Solusi Kesejahteraan Fisik & Finansial" 
             class="absolute top-0 left-0 w-full h-full z-10"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            sandbox="allow-scripts allow-same-origin allow-presentation"
             allowfullscreen
           ></iframe>
 
@@ -842,6 +859,7 @@
       title="Testimoni Video"
       class="absolute top-0 left-0 w-full h-full"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      sandbox="allow-scripts allow-same-origin allow-presentation"
       allowfullscreen
     ></iframe>
   </div>
@@ -1213,6 +1231,7 @@ Kabar baiknya, seluruh varian nutrisi praktis ini bisa saling dikombinasikan lho
       title="Testimoni Video"
       class="absolute top-0 left-0 w-full h-full"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      sandbox="allow-scripts allow-same-origin allow-presentation"
       allowfullscreen
     ></iframe>
   </div>
@@ -2043,6 +2062,26 @@ const testimoniData = [
       alert('Screenshot tidak diizinkan di halaman ini!');
     }
   });
+
+  // === PROTEKSI MENONAKTIFKAN LINK DI VIDEO ===
+
+  // 4. Blokir semua link eksternal dan WhatsApp agar tidak bisa diklik
+  document.addEventListener('click', function(e) {
+    const link = e.target.closest('a[href^="https"], a[href^="http"], a[href^="//"]');
+    if (link) {
+      e.preventDefault();
+      e.stopPropagation();
+      return false;
+    }
+  }, true);
+
+  // 5. Matikan interaksi pada WhatsApp links
+  document.addEventListener('mousedown', function(e) {
+    if (e.target.href && (e.target.href.includes('wa.me') || e.target.href.includes('http'))) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+  }, true);
 
   // 5. Efek Blur Otomatis Aman (Tidak Mengganggu Video Playback)
   window.addEventListener('blur', function() {
