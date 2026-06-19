@@ -3,7 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stokis Resmi MCI One More Bekasi - Edukasi Suplemen Tempel (Transdermal Patch) & Kemitraan/title>
+    <title>Stokis Resmi MCI One More Bekasi - Edukasi Suplemen Tempel (Transdermal Patch) & Kemitraan</title>
+    <meta name="description" content="Stokis resmi MCI One More, Bekasi Indonesia. Dapatkan informasi produk suplemen tempel transdermal patch dan peluang kemitraan tim terverifikasi.">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mci.suplementempel.com/"> 
+    <meta property="og:title" content="Stokis Resmi MCI One More Bekasi - Suplemen Tempel">
+    <meta property="og:description" content="Pusat edukasi teknologi transdermal patch dan peluang program kemitraan resmi tim terverifikasi Bekasi.">
+    <meta property="og:image" content="https://mci.suplementempel.com/hero-preview.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://stokisonemorebekasi.com/">
+    <meta property="twitter:title" content="Stokis Resmi MCI One More Bekasi - Suplemen Tempel">
+    <meta property="twitter:description" content="Pusat edukasi teknologi transdermal patch dan peluang program kemitraan resmi tim terverifikasi Bekasi.">
+    <meta property="twitter:image" content="https://mci.suplementempel.com/hero-preview.png">
     
     <!-- Load Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -34,14 +48,15 @@
         /* ═══════════════════════════════════════════════════════════════════
            watermark
         ═══════════════════════════════════════════════════════════════════ */
+          /* ═══════════════════════════════════════════════════════════════════
+   watermark (Sudah Diperbaiki: Bisa Copas)
+   ═══════════════════════════════════════════════════════════════════ */
           .watermark-overlay-full {
             position: fixed !important;
             inset: 0 !important;
             z-index: 50 !important;
-            pointer-events: none !important;
-            user-select: none !important;
-            -webkit-user-select: none;
-            opacity: 0.03; /* Tingkat ketebalan watermark (0.03 = 3%) */
+            pointer-events: none !important; /* Ini yang bikin tombol di bawahnya tetap bisa diklik */
+            opacity: 0.03; /* Tingkat ketebalan watermark (3%) */
             
             /* Membuat pola teks miring berulang otomatis memenuhi seluruh layar */
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Ctext x='50%25' y='50%25' font-family='sans-serif' font-weight='bold' font-size='16' fill='%23000000' text-anchor='middle' transform='rotate(-45 75 75)' letter-spacing='2'%3EMCI_CB%3C/text%3E%3C/svg%3E");
@@ -624,7 +639,7 @@
             id="wistia-player-hero"
             src="https://fast.wistia.net/embed/iframe/v7d46uky0w" 
             title="Edukasi Kebugaran & Tren Masa Depan" 
-            class="absolute top-0 left-0 w-full h-full z-10"
+            class="absolute top-0 left-0 w-full h-full z-10 video-wistia"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
             allowfullscreen
           ></iframe>
@@ -1584,55 +1599,97 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // --- Bagian 1: Mengontrol Video Tag Lokal (<video>) ---
     const localVideos = document.querySelectorAll('video');
-    
-    const localVideoObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // Ketika video masuk layar, lanjutkan pemutaran (hanya jika sebelumnya sedang dimainkan atau diizinkan)
-          entry.target.play().catch(err => {
-            console.log("Autoplay dicegah oleh browser, menunggu interaksi user.");
-          });
-        } else {
-          // Ketika video keluar layar, pause otomatis
+  
+  const localVideoObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Hanya melanjutkan pemutaran jika status sebelumnya adalah diputar oleh sistem
+        if (entry.target.dataset.wasPlaying === 'true') {
+          entry.target.play().catch(err => console.log("Autoplay dicegah browser"));
+        }
+      } else {
+        // Jika sedang berputar saat di-scroll keluar, tandai untuk di-resume nanti
+        if (!entry.target.paused) {
+          entry.target.dataset.wasPlaying = 'true';
           entry.target.pause();
-        }
-      });
-    }, { threshold: 0.25 }); // Video dianggap masuk jika minimal 25% areanya terlihat di layar
-
-    localVideos.forEach(video => localVideoObserver.observe(video));
-
-
-    // --- Bagian 2: Mengontrol YouTube Iframe (YouTube Player API) ---
-    // Fungsi ini mendeteksi semua iframe YouTube pada halaman Anda
-    const youtubeIframes = document.querySelectorAll('iframe[src*="youtube.com"]');
-    
-    // Daftarkan fungsi pemanggil postMessage ke Iframe YouTube
-    function controlYoutube(iframe, command) {
-      if (iframe.contentWindow) {
-        iframe.contentWindow.postMessage(JSON.stringify({
-          "event": "command",
-          "func": command,
-          "args": ""
-        }), "*");
-      }
-    }
-
-    const youtubeObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const iframe = entry.target;
-        if (entry.isIntersecting) {
-          // Melanjutkan video saat masuk kembali ke layar
-          controlYoutube(iframe, "playVideo");
         } else {
-          // Pause video saat ter-scroll ke luar layar
-          controlYoutube(iframe, "pauseVideo");
+          entry.target.dataset.wasPlaying = 'false';
         }
-      });
-    }, { threshold: 0.25 });
+      }
+    });
+  }, { threshold: 0.25 });
 
-    youtubeIframes.forEach(iframe => youtubeObserver.observe(iframe));
+  localVideos.forEach(video => localVideoObserver.observe(video));
 
-  });
+
+  // =========================================================================
+  // --- Bagian 2: Mengontrol YouTube Iframe (PostMessage API) ---
+  // =========================================================================
+  const youtubeIframes = document.querySelectorAll('iframe[src*="youtube.com"]');
+  
+  function controlYoutube(iframe, command) {
+    if (iframe.contentWindow) {
+      iframe.contentWindow.postMessage(JSON.stringify({
+        "event": "command",
+        "func": command,
+        "args": ""
+      }), "*");
+    }
+  }
+
+  const youtubeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const iframe = entry.target;
+      if (entry.isIntersecting) {
+        if (iframe.dataset.wasPlaying === 'true') {
+          controlYoutube(iframe, "playVideo");
+        }
+      } else {
+        // Karena postMessage searah, kita asumsikan video aktif di-pause saat keluar layar
+        // Catatan: Jika user mem-pause secara manual lalu scroll, status tetap dianggap true.
+        // Ini adalah trade-off terbaik jika tidak ingin memuat library API YouTube yang berat.
+        iframe.dataset.wasPlaying = 'true';
+        controlYoutube(iframe, "pauseVideo");
+      }
+    });
+  }, { threshold: 0.25 });
+
+  youtubeIframes.forEach(iframe => youtubeObserver.observe(iframe));
+
+
+  // =========================================================================
+  // --- Bagian 3: Mengontrol Wistia Hero Iframe (Wistia PostMessage API) ---
+  // =========================================================================
+  const wistiaIframes = document.querySelectorAll('.video-wistia');
+
+  function controlWistia(iframe, command) {
+    if (iframe.contentWindow) {
+      // Wistia menerima perintah khusus lewat postMessage bertipe hash gembok bawaan mereka
+      iframe.contentWindow.postMessage(JSON.stringify({
+        "wistiaEmbedPlayer": true,
+        "method": command
+      }), "*");
+    }
+  }
+
+  const wistiaObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const iframe = entry.target;
+      if (entry.isIntersecting) {
+        if (iframe.dataset.wasPlaying === 'true') {
+          controlWistia(iframe, "play");
+        }
+      } else {
+        // Otomatis pause video Wistia saat keluar dari layar
+        iframe.dataset.wasPlaying = 'true';
+        controlWistia(iframe, "pause");
+      }
+    });
+  }, { threshold: 0.25 });
+
+  wistiaIframes.forEach(iframe => wistiaObserver.observe(iframe));
+
+});
 
 
 const navItemsList = ['hero-home-hybrid', 'produk', 'bisnis-section', 'kontak-tentang-kami'];
@@ -2175,36 +2232,7 @@ function bukaPrivacyModal() {
   }
   
   //proteksi
-// === PROTEKSI ANTI COPY-PASTE & KLIK KANAN ===
-  
-  // 1. Matikan Klik Kanan (Context Menu)
-  document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-  });
 
-  // 2. Matikan Seleksi Teks
-  document.addEventListener('selectstart', function(e) {
-    e.preventDefault();
-  });
-
-  // 3. Matikan Shortcut Keyboard (Ctrl+C, Ctrl+X, Ctrl+U, F12)
-  document.addEventListener('keydown', function(e) {
-    if ((e.ctrlKey || e.metaKey) && e.key === 'c') { e.preventDefault(); }
-    if ((e.ctrlKey || e.metaKey) && e.key === 'x') { e.preventDefault(); }
-    if ((e.ctrlKey || e.metaKey) && e.key === 'u') { e.preventDefault(); }
-    if (e.key === 'F12') { e.preventDefault(); }
-  });
-
-
-  // === PROTEKSI ANTI SCREENSHOT EXTRA ===
-
-  // 4. Deteksi tombol Print Screen (Khusus Desktop)
-  document.addEventListener('keyup', function(e) {
-    if (e.key === 'PrintScreen') {
-      navigator.clipboard.writeText(''); 
-      alert('Screenshot tidak diizinkan di halaman ini!');
-    }
-  });
 
   // === PROTEKSI MENONAKTIFKAN LINK DI VIDEO ===
 
