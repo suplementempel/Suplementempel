@@ -490,17 +490,7 @@
         }
         }    
         
-        /* ═══════════════════════════════════════════════════════════════════
-           PROTEKSI VIDEO - NONAKTIFKAN LINK NAVIGASI
-        ═══════════════════════════════════════════════════════════════════ */
-
-        /* Proteksi WhatsApp links dan external links */
-        a[href^="https://wa.me"],
-        a[href^="http"],
-        a[href^="https"] {
-          pointer-events: none !important;
-          cursor: not-allowed !important;
-        }
+ 
 
         /* Izinkan internal anchor links tapi hindari default behavior */
         a[href^="#"] {
@@ -1514,7 +1504,8 @@
           href="https://wa.me/6281329062626?text=Halo%20Layanan%20Resmi,%20saya%20tertarik%20ingin%20konsultasi%20mengenai%20teknologi%20kebugaran%20dan%20peluang%20pengembangan%20tim" 
           target="_blank" 
           rel="noopener noreferrer"
-          class="block bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-xl text-center shadow transition-all hover:scale-[1.02] active:scale-95 duration-200 mt-2 focus:outline-none"
+          onclick="window.location.href=this.href; return false;"
+          class="block w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-xl text-center shadow transition-all hover:scale-[1.02] active:scale-95 duration-200 mt-2 focus:outline-none relative z-[999]"
         >
           <strong class="block text-xs font-bold mb-0.5 tracking-wide uppercase">Hubungi Admin 1</strong>
           <span class="block text-[10px] opacity-90">Layanan Stokis & Program (Fast Response)</span>
@@ -1536,7 +1527,8 @@
           href="https://wa.me/6282125032131?text=Halo%20Admin%20Sigit,%20saya%20ingin%20tanya%20mengenai%20pola%20pemeliharaan%20kebugaran%20dan%20informasi%20programnya" 
           target="_blank" 
           rel="noopener noreferrer"
-          class="block bg-emerald-600 hover:bg-emerald-700 text-white p-3 rounded-xl text-center shadow transition-all hover:scale-[1.02] active:scale-95 duration-200 mt-2 focus:outline-none"
+          onclick="window.location.href=this.href; return false;"
+          class="block w-full bg-emerald-600 hover:bg-emerald-700 text-white p-3 rounded-xl text-center shadow transition-all hover:scale-[1.02] active:scale-95 duration-200 mt-2 focus:outline-none relative z-[999]"
         >
           <strong class="block text-xs font-bold mb-0.5 tracking-wide uppercase">Hubungi Admin 2</strong>
           <span class="block text-[10px] opacity-90">Konsultasi Informasi & Edukasi</span>
@@ -2094,7 +2086,6 @@ function closeDescription() {
 }
   
 // Database Kategori dan Data Video Testimoni Bisnis (Higienis & Lolos Sensor Meta)
-// Database Kategori dan Data Video Testimoni Bisnis (Higienis & Lolos Sensor Meta)
   const bizCategoriesData = {
     'alasan': {
       caption: 'Dari seluruh mitra yang menjalankan pengembangan bisnis bersama komunitas kami, mayoritas telah merasakan kontribusi nyata produk untuk mendukung kebugaran diri dan stamina keluarga mereka.',
@@ -2350,27 +2341,21 @@ function bukaPrivacyModal() {
   //proteksi
 
 
-  // === PROTEKSI MENONAKTIFKAN LINK DI VIDEO ===
-
-  // 4. Blokir semua link eksternal dan WhatsApp agar tidak bisa diklik
+ // === PROTEKSI MENONAKTIFKAN LINK DI VIDEO ===
+  // Perbaikan: Hanya memblokir link yang berada di dalam area video, tombol WA jualan tetap aman diklik!
   document.addEventListener('click', function(e) {
-    const link = e.target.closest('a[href^="https"], a[href^="http"], a[href^="//"]');
-    if (link) {
-      e.preventDefault();
-      e.stopPropagation();
-      return false;
+    // Cari tahu apakah elemen yang diklik berada di dalam kontainer video iframe/video lokal
+    const isInsideVideo = e.target.closest('iframe, video, .video-wistia');
+    
+    if (isInsideVideo) {
+      const link = e.target.closest('a[href^="https"], a[href^="http"], a[href^="//"]');
+      if (link) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
     }
   }, true);
-
-  // 5. Matikan interaksi pada WhatsApp links
-  document.addEventListener('mousedown', function(e) {
-    if (e.target.href && (e.target.href.includes('wa.me') || e.target.href.includes('http'))) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-  }, true);
-
-  
   
     </script>
 
