@@ -644,7 +644,7 @@
             <div class="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border-l-4 border-emerald-500 shadow-sm leading-relaxed">
               <span class="text-sm flex-shrink-0 text-emerald-500">🛡️</span>
               <span>
-                <strong class="text-slate-900 font-bold">Menghindari First-Pass Effect:</strong> Nutrisi langsung masuk melalui pori-pori kulit menuju kapiler darah. Formula aktif terhindar dari kerusakan akibat asam lambung dan filter hati, menghasilkan efisiensi penyerapan hingga <strong class="text-emerald-600 font-extrabold text-sm">95% secara konstan.</strong>
+                <strong class="text-slate-900 font-bold">Menghindari <em class="italic">First-Pass Effect:</em></strong> Nutrisi langsung masuk melalui pori-pori kulit menuju kapiler darah. Formula aktif terhindar dari kerusakan akibat asam lambung dan filter hati, menghasilkan efisiensi penyerapan hingga <strong class="text-emerald-600 font-extrabold text-sm">95% secara konstan.</strong>
               </span>
             </div>
           </div>
@@ -750,7 +750,7 @@
           📜 Validasi Sains: Standar Penghantaran Global
         </span>
         <p class="text-slate-600 leading-relaxed text-xs md:text-sm text-justify">
-          Teknologi penghantaran komponen via topikal-kulit merupakan metode yang valid dan jamak diterapkan dalam sains biomedis internasional. Penggunaan sistem penyerapan ini ditujukan untuk memberikan kenyamanan pemeliharaan kondisi tubuh, menjaga bioavailabilitas zat, serta menghindari beban kerja berlebih pada sistem filtrasi organ internal.
+          Teknologi penghantaran komponen via kulit secara transdermal merupakan metode yang valid dan jamak diterapkan dalam sains biomedis internasional. Penggunaan sistem penyerapan ini ditujukan untuk memberikan kenyamanan pemeliharaan kondisi tubuh, menjaga bioavailabilitas zat, serta menghindari beban kerja berlebih pada sistem filtrasi organ internal.
         </p>
       </div>
     </div>
@@ -1877,7 +1877,7 @@ function changeTestimoni(index) {
   }
 }
       // Produk  
-// DATABASE BARU: 3 Gambar Per Produk (Sesuai Rencana Lu, Bro)
+// DATABASE BARU: 3 Gambar Per Produk
 const productsData = {
   1: { 
     name: 'Painless Night Glu', 
@@ -1988,6 +1988,45 @@ function nextProductImage() {
 function prevProductImage() {
   currentProductImgIndex = (currentProductImgIndex - 1 + 3) % 3;
   updateProductImageDisplay();
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// INTEGRASI FITUR SWIPE (GESER JARI) PADA SLIDESHOW GAMBAR PRODUK
+// ═══════════════════════════════════════════════════════════════════
+let touchStartX = 0;
+let touchEndX = 0;
+const minSwipeDistance = 40; // Jarak minimum geser jari (piksel) agar dianggap swipe
+
+// Jalankan inisialisasi event listener setelah DOM siap
+document.addEventListener("DOMContentLoaded", function() {
+  const productImageEl = document.getElementById('product-image');
+
+  if (productImageEl) {
+    // 1. Catat posisi X awal saat jari pertama menempel di gambar
+    productImageEl.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    // 2. Catat posisi X akhir saat jari diangkat, lalu hitung arahnya
+    productImageEl.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      handleProductSwipe();
+    }, { passive: true });
+  }
+});
+
+// 3. Fungsi evaluasi arah gesekan jari
+function handleProductSwipe() {
+  const swipeDistance = touchEndX - touchStartX;
+
+  // Jari digeser ke KIRI (User ingin melihat gambar berikutnya di sebelah kanan)
+  if (swipeDistance < -minSwipeDistance) {
+    nextProductImage();
+  } 
+  // Jari digeser ke KANAN (User ingin kembali melihat gambar di sebelah kiri)
+  else if (swipeDistance > minSwipeDistance) {
+    prevProductImage();
+  }
 }
 
 // SELEKSI VARIAN PRODUK & UPDATE STYLE + POSITIONING
