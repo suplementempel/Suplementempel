@@ -1,4 +1,4 @@
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
@@ -23,295 +23,96 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     
-    <style>
-        /* ═══════════════════════════════════════════════════════════════════
-           SCROLL MARGIN UNTUK ANCHOR LINK (agar tidak tertutup navbar)
-        ═══════════════════════════════════════════════════════════════════ */
-        #hero,
-        #testimoni-bisnis,
-        #kontak-kami,
-        {
-            scroll-margin-top: 80px;
-        }
-        /* ═══════════════════════════════════════════════════════════════════
-           watermark
-        ═══════════════════════════════════════════════════════════════════ */
-          /* ═══════════════════════════════════════════════════════════════════
-   watermark (Sudah Diperbaiki: Bisa Copas)
-   ═══════════════════════════════════════════════════════════════════ */
-          .watermark-overlay-full {
-            position: fixed !important;
-            inset: 0 !important;
-            z-index: 50 !important;
-            pointer-events: none !important; /* Ini yang bikin tombol di bawahnya tetap bisa diklik */
-            opacity: 0.03; /* Tingkat ketebalan watermark (3%) */
-            
-            /* Membuat pola teks miring berulang otomatis memenuhi seluruh layar */
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Ctext x='50%25' y='50%25' font-family='sans-serif' font-weight='bold' font-size='16' fill='%23000000' text-anchor='middle' transform='rotate(-45 75 75)' letter-spacing='2'%3EMCI_CB%3C/text%3E%3C/svg%3E");
-            background-repeat: repeat !important;
-          }
+  <style>
+    /* ═══════════════════════════════════════════════════════════════════
+       SCROLL MARGIN UNTUK ANCHOR LINK (agar tidak tertutup navbar)
+    ═══════════════════════════════════════════════════════════════════ */
+    #hero,
+    #testimoni,
+    #kontak-kami {
+      scroll-margin-top: 80px;
+    }
 
-        /* ═══════════════════════════════════════════════════════════════════
-           NAVBAR STYLES
-        ═══════════════════════════════════════════════════════════════════ */
-        .navbar-fixed {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 9999;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
+    /* ═══════════════════════════════════════════════════════════════════
+       watermark
+    ═══════════════════════════════════════════════════════════════════ */
+    .watermark-overlay-full {
+      position: fixed !important;
+      inset: 0 !important;
+      z-index: 50 !important;
+      pointer-events: none !important;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Ctext x='50%25' y='50%25' font-family='sans-serif' font-weight='bold' font-size='16' fill='%23000000' text-anchor='middle' transform='rotate(-45 75 75)' letter-spacing='2'%3EMCI_CB%3C/text%3E%3C/svg%3E");
+      background-repeat: repeat !important;
+    }
 
-        .navbar-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    /* ═══════════════════════════════════════════════════════════════════
+       NAVBAR STYLES
+    ═══════════════════════════════════════════════════════════════════ */
+    .navbar-fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 9999;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
 
-        .navbar-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
+    /* ═══════════════════════════════════════════════════════════════════
+       EDUKASI & KONTAK SECTION STYLES
+    ═══════════════════════════════════════════════════════════════════ */
+    .edu-section,
+    .edu-section *,
+    .kontak-kami-section,
+    .kontak-layanan-section,
+    .kontak-footer {
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
 
-        .navbar-logo {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            font-size: 1.25rem;
-            color: #1a73e8;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+    /* Hide Scrollbar */
+    #biz-tab-container::-webkit-scrollbar,
+    #biz-thumbnails-container::-webkit-scrollbar {
+      display: none !important;
+    }
 
-        .navbar-logo span {
-            background: linear-gradient(135deg, #1a73e8 0%, #0d62d0 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+    /* Responsive Nav Rules */
+    @media (max-width: 767px) {
+      #desktop-menu-list {
+        display: none !important;
+      }
+      #nav-toggle-btn {
+        display: block !important;
+      }
+    }
 
-        .navbar-menu {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
+    @media (min-width: 768px) {
+      #desktop-menu-list {
+        display: flex !important;
+      }
+      #nav-toggle-btn {
+        display: none !important;
+      }
+      #mobile-menu-dropdown {
+        display: none !important;
+      }
+    }    
 
-        .navbar-menu li {
-            margin: 0;
-        }
-
-        .navbar-menu a {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            font-size: 0.875rem;
-            color: #3c4043;
-            text-decoration: none;
-            padding: 10px 18px;
-            border-radius: 8px;
-            transition: all 0.2s ease;
-            display: block;
-        }
-
-        .navbar-menu a:hover {
-            background-color: #e8f0fe;
-            color: #1a73e8;
-        }
-
-        .navbar-menu a.active {
-            background-color: #1a73e8;
-            color: #ffffff;
-        }
-
-        .navbar-toggle {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 8px;
-        }
-
-        .navbar-toggle span {
-            display: block;
-            width: 24px;
-            height: 3px;
-            background-color: #3c4043;
-            border-radius: 2px;
-            transition: all 0.3s ease;
-        }
-
-        .navbar-toggle span:nth-child(2) {
-            margin: 5px 0;
-        }
-
-        .navbar-toggle.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-
-        .navbar-toggle.active span:nth-child(2) {
-            opacity: 0;
-        }
-
-        .navbar-toggle.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
-        }
-
-        /* Mobile Menu */
-        @media (max-width: 768px) {
-            .navbar-toggle {
-                display: block;
-            }
-
-            .navbar-menu {
-                position: absolute;
-                top: 70px;
-                left: 0;
-                right: 0;
-                background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(10px);
-                -webkit-backdrop-filter: blur(10px);
-                flex-direction: column;
-                padding: 20px;
-                gap: 5px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-                transform: translateY(-100%);
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s ease;
-            }
-
-            .navbar-menu.open {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
-
-            .navbar-menu a {
-                width: 100%;
-                text-align: center;
-                padding: 14px 20px;
-            }
-        }
-
-        /* ═══════════════════════════════════════════════════════════════════
-           EDUKASI SECTION STYLES
-        ═══════════════════════════════════════════════════════════════════ */
-        .edu-section,
-        .edu-section * {
-            font-family: 'Poppins', sans-serif;
-            box-sizing: border-box;
-        }
-
-        .edu-box-yellow {
-            border-left: 5px solid #ffcc00;
-            background-color: #fffaf0;
-        }
-
-        .edu-box-red {
-            border-left: 5px solid #e53e3e;
-            background-color: #fff5f5;
-        }
-
-        .edu-science-box {
-            background-color: #f7fafc;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-        }
-
-        .edu-th-blue {
-            background-color: #1a73e8;
-            color: #ffffff;
-        }
-
-        .edu-td-green {
-            background-color: #f0fdf4;
-            color: #16a34a;
-            font-weight: 600;
-        }
-
-        .edu-td-darkgreen {
-            background-color: #f0fdf4;
-            color: #137333;
-            font-weight: 700;
-        }
-
-        .edu-responsive-img {
-            display: block;
-            margin: 0 auto;
-            max-width: 100%;
-            height: auto;
-        }
-
-
-
-        /* ═══════════════════════════════════════════════════════════════════
-           KONTAK SECTION STYLES
-        ═══════════════════════════════════════════════════════════════════ */
-        .kontak-kami-section,
-        .kontak-layanan-section,
-        .kontak-footer,
- 
-            box-sizing: border-box;
-        }
-
-        /* ═══════════════════════════════════════════════════════════════════
-           TESTIMONI BISNIS SECTION STYLES
-        ═══════════════════════════════════════════════════════════════════ */   
-        #biz-tab-container::-webkit-scrollbar,
-        #biz-thumbnails-container::-webkit-scrollbar {
-          display: none !important;
-        }
-        /* ═══════════════════════════════════════════════════════════════════
-           TESTIMONI BISNIS SECTION STYLES
-        ═══════════════════════════════════════════════════════════════════ */  
-
-        /* Kondisi Layar HP (Kecil di bawah 768px) */
-            @media (max-width: 767px) {
-        #desktop-menu-list {
-          display: none !important; /* Paksa sembunyikan menu panjang desktop */
-        }
-        #nav-toggle-btn {
-          display: block !important; /* Paksa munculkan tombol hamburger */
-        }
-        }
-
-        /* Kondisi Layar Desktop/Tablet (768px ke atas) */
-          @media (min-width: 768px) {
-        #desktop-menu-list {
-          display: flex !important; /* Munculkan kembali menu samping */
-        }
-        #nav-toggle-btn {
-          display: none !important; /* Sembunyikan tombol hamburger */
-        }
-        #mobile-menu-dropdown {
-          display: none !important; /* Pastikan dropdown mobile hancur di layar besar */
-        }
-        }    
-        
- 
-
-        /* Izinkan internal anchor links tapi hindari default behavior */
-        a[href^="#"] {
-          pointer-events: auto;
-        }
-  
-    </style>
+    a[href^="#"] {
+      pointer-events: auto;
+    }
+  </style>
 </head>
 <body class="bg-white">
 <div class="watermark-overlay-full"></div>
+
 <!-- GLOBAL NAVBAR -->
 <nav id="main-navbar" class="fixed top-0 left-0 right-0 z-50 bg-[#556B2F]/95 backdrop-blur-sm shadow-md border-b border-white/10">
     <div class="max-w-6xl mx-auto px-4 flex justify-between items-center h-16">
@@ -325,7 +126,7 @@
             <li><a href="reward.html" class="text-white hover:bg-white/10 px-3 py-2 rounded-lg transition visited:text-amber-200">Reward</a></li>
             <li><a href="kontak.html" class="text-white hover:bg-white/10 px-3 py-2 rounded-lg transition visited:text-amber-200">Kontak</a></li>
         </ul>
-        <button id="nav-toggle-btn" onclick="toggleMobileMenu()" class="md:hidden text-white p-2 focus:outline-none">
+        <button id="nav-toggle-btn" onclick="toggleMobileMenu()" class="md:hidden text-white p-2 focus:outline-none" aria-label="Toggle Navigation">
             <svg id="icon-menu" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
@@ -340,21 +141,12 @@
     </div>
 </nav>
 
+<!-- SPACER NAVBAR -->
 <div class="h-16 md:h-18"></div>
 
-<!-- ELEMEN PENGGANTI TINGGI (SPACER) -->
-<div class="h-16 md:h-18" style="height: 4rem;" />
-
-    <!-- ═══════════════════════════════════════════════════════════════════
-         KONTEN UTAMA
-    ═══════════════════════════════════════════════════════════════════ -->
-<!--HERO-->
-<section 
-  id="hero" 
-  class="bg-gradient-to-tr from-emerald-500 via-teal-200 to-green-50 py-12 md:py-20 px-4 text-slate-800 overflow-hidden scroll-mt-16 block border-b border-slate-200 mb-14"
->
+<!-- HERO SECTION -->
+<section id="hero" class="bg-gradient-to-tr from-emerald-500 via-teal-200 to-green-50 py-12 md:py-20 px-4 text-slate-800 overflow-hidden scroll-mt-16 block border-b border-slate-200 mb-14">
   <div class="max-w-6xl mx-auto">
-    
     <div class="text-center mb-5">
       <span class="bg-emerald-100 text-emerald-800 border border-emerald-200 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider inline-block uppercase shadow-sm">
         🧬 Portal Edukasi Sains & Teknologi Kebugaran Modern
@@ -369,15 +161,13 @@
       Kesaksian individu, praktisi, maupun tokoh terhadap sistem & produk transdermal patch MCI One More.
     </p>
 
-        <div class="flex flex-col lg:flex-row gap-6 justify-center items-stretch">
-      
-      <div class="flex-1 lg:max-w-lg bg-white p-4 rounded-xl border border-slate-200 shadow-2xl block flex flex-col justify-between relative group">
-        
+    <div class="flex flex-col lg:flex-row gap-6 justify-center items-stretch">
+      <div class="flex-1 lg:max-w-lg bg-white p-4 rounded-xl border border-slate-200 shadow-2xl flex flex-col justify-between relative group">
         <div class="w-full max-w-3xl mx-auto overflow-hidden">
           <img 
             src="https://res.cloudinary.com/dbnwkc0j0/image/upload/v1783036923/hero_testi_ztdnpf.webp" 
             alt="testimoni-transdermal" 
-            class="w-full aspect-video object-cover"
+            class="w-full aspect-video object-cover rounded-lg"
             loading="eager"
           />
         </div>
@@ -386,14 +176,13 @@
       <div class="flex-1 lg:max-w-md bg-white p-6 rounded-2xl border border-slate-200 shadow-xl flex flex-col justify-between">
         <div>
           <p class="text-slate-900 text-base font-extrabold text-center mb-5 leading-snug uppercase tracking-wide border-b border-slate-100 pb-3">
-          VALIDASI SISTEM & PRODUK TRANSDERMAL
+            VALIDASI SISTEM & PRODUK TRANSDERMAL
           </p>
           
           <div class="text-slate-600 text-sm space-y-4 mb-4">
             <div class="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border-l-4 border-emerald-500 shadow-sm leading-relaxed">
               <span class="text-base flex-shrink-0 text-emerald-500">🛡️</span>
-              <span class="text-slate-900">Efektifitas dan efisiensi penyerapan nutrisi dengan metode transdermal menjadikan penguna aktif merasakan kebugaran yang diperoleh lebih cepat dibandingkan metode yang selama ini mereka pakai.
-              </span>
+              <span class="text-slate-900">Efektifitas dan efisiensi penyerapan nutrisi dengan metode transdermal menjadikan pengguna aktif merasakan kebugaran yang diperoleh lebih cepat dibandingkan metode yang selama ini mereka pakai.</span>
             </div>
           </div>
         </div>
@@ -407,104 +196,104 @@
     </div>
   </div>
 </section>
-   
-   <!-- [TEMPAT KONTEN TESTIMONI BISNIS DI SINI] -->
-    <section id="testimoni" class="max-w-6xl mx-auto p-2.5 bg-white scroll-mt-16 block mt-8">
-         <div class="bg-white p-5 md:p-8 rounded-2xl border border-slate-200 shadow-sm block">
-     <h2 class="text-center font-extrabold text-slate-900 leading-snug mb-10 text-xl md:text-3xl max-w-3xl mx-auto tracking-tight">
+    
+<!-- SECTION TESTIMONI -->
+<section id="testimoni" class="max-w-6xl mx-auto p-2.5 bg-white scroll-mt-16 block mt-8">
+  <div class="bg-white p-5 md:p-8 rounded-2xl border border-slate-200 shadow-sm block">
+    <h2 class="text-center font-extrabold text-slate-900 leading-snug mb-10 text-xl md:text-3xl max-w-3xl mx-auto tracking-tight">
       Pengalaman Mitra & Benefit Komunitas
     </h2>
-  <div id="biz-tab-container" class="w-full mb-2 overflow-x-auto" style="-ms-overflow-style: none; scrollbar-width: none;">
-    <div class="flex gap-1.5 min-w-max px-1">
-      <!-- TAB BARU: DIAKUI TOKOH (DEFAULT AKTIF) -->
-      <button
-        id="biz-tab-diakui-tokoh"
-        onclick="changeBizCategory('diakui-tokoh')"
-        type="button"
-        class="biz-tab-btn py-1.5 px-2.5 rounded cursor-pointer text-xs font-semibold whitespace-nowrap transition-colors bg-blue-600 text-white border border-blue-600"
-      >
-        Diakui Tokoh
-      </button>
 
-      <button
-        id="biz-tab-alasan"
-        onclick="changeBizCategory('alasan')"
-        type="button"
-        class="biz-tab-btn py-1.5 px-2.5 rounded cursor-pointer text-xs font-semibold whitespace-nowrap transition-colors bg-slate-100 text-slate-500 border border-slate-200 hover:bg-slate-200"
-      >
-        Cerita Awal Mitra
-      </button>
-      
-      <button
-        id="biz-testi"
-        onclick="changeBizCategory('testi')"
-        type="button"
-        class="biz-tab-btn py-1.5 px-2.5 rounded cursor-pointer text-xs font-semibold whitespace-nowrap transition-colors bg-slate-100 text-slate-500 border border-slate-200 hover:bg-slate-200"
-      >
-        Testimoni Produk
-      </button>
+    <div id="biz-tab-container" class="w-full mb-2 overflow-x-auto" style="-ms-overflow-style: none; scrollbar-width: none;">
+      <div class="flex gap-1.5 min-w-max px-1">
+        <button
+          id="biz-tab-diakui-tokoh"
+          onclick="changeBizCategory('diakui-tokoh')"
+          type="button"
+          class="biz-tab-btn py-1.5 px-2.5 rounded cursor-pointer text-xs font-semibold whitespace-nowrap transition-colors bg-blue-600 text-white border border-blue-600"
+        >
+          Diakui Tokoh
+        </button>
 
-      <button
-        id="biz-tab-trip-pertama"
-        onclick="changeBizCategory('trip-pertama')"
-        type="button"
-        class="biz-tab-btn py-1.5 px-2.5 rounded cursor-pointer text-xs font-semibold whitespace-nowrap transition-colors bg-slate-100 text-slate-500 border border-slate-200 hover:bg-slate-200"
-      >
-        Langkah Awal Mitra
-      </button>
+        <button
+          id="biz-tab-alasan"
+          onclick="changeBizCategory('alasan')"
+          type="button"
+          class="biz-tab-btn py-1.5 px-2.5 rounded cursor-pointer text-xs font-semibold whitespace-nowrap transition-colors bg-slate-100 text-slate-500 border border-slate-200 hover:bg-slate-200"
+        >
+          Cerita Awal Mitra
+        </button>
+        
+        <button
+          id="biz-tab-testi"
+          onclick="changeBizCategory('testi')"
+          type="button"
+          class="biz-tab-btn py-1.5 px-2.5 rounded cursor-pointer text-xs font-semibold whitespace-nowrap transition-colors bg-slate-100 text-slate-500 border border-slate-200 hover:bg-slate-200"
+        >
+          Testimoni Produk
+        </button>
 
-      <button
-        id="biz-tab-dokumentasi"
-        onclick="changeBizCategory('dokumentasi')"
-        type="button"
-        class="biz-tab-btn py-1.5 px-2.5 rounded cursor-pointer text-xs font-semibold whitespace-nowrap transition-colors bg-slate-100 text-slate-500 border border-slate-200 hover:bg-slate-200"
-      >
-        Dokumentasi Kegiatan
-      </button>
+        <button
+          id="biz-tab-trip-pertama"
+          onclick="changeBizCategory('trip-pertama')"
+          type="button"
+          class="biz-tab-btn py-1.5 px-2.5 rounded cursor-pointer text-xs font-semibold whitespace-nowrap transition-colors bg-slate-100 text-slate-500 border border-slate-200 hover:bg-slate-200"
+        >
+          Langkah Awal Mitra
+        </button>
 
-      <button
-        id="biz-tab-cash-reward"
-        onclick="changeBizCategory('cash-reward')"
-        type="button"
-        class="biz-tab-btn py-1.5 px-2.5 rounded cursor-pointer text-xs font-semibold whitespace-nowrap transition-colors bg-slate-100 text-slate-500 border border-slate-200 hover:bg-slate-200"
-      >
-        Apresiasi & Edukasi
-      </button>
+        <button
+          id="biz-tab-dokumentasi"
+          onclick="changeBizCategory('dokumentasi')"
+          type="button"
+          class="biz-tab-btn py-1.5 px-2.5 rounded cursor-pointer text-xs font-semibold whitespace-nowrap transition-colors bg-slate-100 text-slate-500 border border-slate-200 hover:bg-slate-200"
+        >
+          Dokumentasi Kegiatan
+        </button>
+
+        <button
+          id="biz-tab-cash-reward"
+          onclick="changeBizCategory('cash-reward')"
+          type="button"
+          class="biz-tab-btn py-1.5 px-2.5 rounded cursor-pointer text-xs font-semibold whitespace-nowrap transition-colors bg-slate-100 text-slate-500 border border-slate-200 hover:bg-slate-200"
+        >
+          Apresiasi & Edukasi
+        </button>
+      </div>
     </div>
-  </div>
 
-  <div id="biz-category-caption" class="text-xs text-slate-500 font-medium mb-2 pl-1.5 border-l-2 border-blue-600 leading-tight block">
-    Produk, program, maupun komunitas kami telah mendapatkan apresiasi serta pengakuan dari berbagai tokoh masyarakat, praktisi kesehatan, dan pebisnis profesional.
-  </div>
+    <div id="biz-category-caption" class="text-xs text-slate-500 font-medium mb-2 pl-1.5 border-l-2 border-blue-600 leading-tight block">
+      Produk, program, maupun komunitas kami telah mendapatkan apresiasi serta pengakuan dari berbagai tokoh masyarakat, praktisi kesehatan, dan pebisnis profesional.
+    </div>
 
-  <div class="relative w-full aspect-video bg-black rounded overflow-hidden mb-1.5 shadow block">
-    <iframe
-      id="biz-main-video"
-      src="https://www.youtube.com/embed/HB3mP6eoR_0?enablejsapi=1&modestbranding=1&rel=0"
-      title="validasi"
-      class="absolute top-0 left-0 w-full h-full"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      sandbox="allow-scripts allow-same-origin allow-presentation"
-      allowfullscreen
-    ></iframe>
-  </div>
+    <div class="relative w-full aspect-video bg-black rounded overflow-hidden mb-1.5 shadow block">
+      <iframe
+        id="biz-main-video"
+        src="https://www.youtube.com/embed/HB3mP6eoR_0?enablejsapi=1&modestbranding=1&rel=0"
+        title="validasi"
+        class="absolute top-0 left-0 w-full h-full"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        sandbox="allow-scripts allow-same-origin allow-presentation"
+        allowfullscreen
+      ></iframe>
+    </div>
 
-  <div class="bg-blue-50 border-l-2 border-blue-600 p-1.5 px-2 rounded mb-2 block">
-    <p id="biz-video-caption" class="text-xs text-blue-800 font-medium leading-tight">
-      Dukungan penuh dari tokoh publik maupun praktisi yang menyaksikan efektivitas produk serta kredibilitas sistem edukasi bisnis di komunitas kami.
-    </p>
-  </div>
+    <div class="bg-blue-50 border-l-2 border-blue-600 p-1.5 px-2 rounded mb-2 block">
+      <p id="biz-video-caption" class="text-xs text-blue-800 font-medium leading-tight">
+        Dukungan penuh dari tokoh publik maupun praktisi yang menyaksikan efektivitas produk serta kredibilitas sistem edukasi bisnis di komunitas kami.
+      </p>
+    </div>
 
-  <div 
-    id="biz-thumbnails-container" 
-    class="flex gap-2 overflow-x-auto pb-2"
-    style="-ms-overflow-style: none; scrollbar-width: none;"
-  >
-  </div>
+    <div 
+      id="biz-thumbnails-container" 
+      class="flex gap-2 overflow-x-auto pb-2"
+      style="-ms-overflow-style: none; scrollbar-width: none;"
+    >
+    </div>
   </div>
 </section> 
 
-<!-- Navigasi Internal ke Halaman Lain -->
+<!-- Navigasi Internal -->
 <div class="max-w-6xl mx-auto px-4 my-8">
     <div class="w-full bg-slate-50 p-6 rounded-xl text-center space-y-3 border border-slate-200 shadow-sm">
         <p class="text-xs font-bold uppercase text-emerald-700 tracking-wider">Jelajahi Halaman Utama Website Kami:</p>
@@ -517,12 +306,10 @@
         </div>
     </div>
 </div>
-  
 
-<section id="kontak-kami" class="bg-gradient-to-br from-slate-50 via-teal-50/30 to-emerald-50/50 py-12 md:py-20 px-4 md:px-8 text-slate-800 overflow-hidden block border-b border-slate-200 ">
-  
+<!-- KONTAK SECTION -->
+<section id="kontak-kami" class="bg-gradient-to-br from-slate-50 via-teal-50/30 to-emerald-50/50 py-12 md:py-20 px-4 md:px-8 text-slate-800 overflow-hidden block border-b border-slate-200">
   <div class="max-w-6xl mx-auto mt-10 md:mt-16">
-    
     <h2 class="text-center text-slate-800 mb-3 text-2xl md:text-3xl font-bold flex items-center justify-center gap-2 tracking-tight">
       👥 Mengenal Lebih Dekat Perwakilan Resmi Anda
     </h2>
@@ -537,7 +324,7 @@
     </div>
     
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto mb-10 items-stretch">
-      
+      <!-- Admin 1 -->
       <div class="bg-slate-50 p-6 md:p-8 rounded-xl shadow-md text-center border-t-4 border-blue-600 flex flex-col justify-between transition-all duration-300 hover:shadow-lg">
         <div>
           <div class="w-28 h-28 mx-auto mb-4 rounded-full bg-slate-200 overflow-hidden border-2 border-blue-100 flex items-center justify-center">
@@ -553,14 +340,14 @@
           href="https://wa.me/6281329062626?text=Halo%20Layanan%20Resmi,%20saya%20tertarik%20ingin%20konsultasi%20mengenai%20teknologi%20kebugaran%20dan%20peluang%20pengembangan%20tim" 
           target="_blank" 
           rel="noopener noreferrer"
-          onclick="window.location.href=this.href; return false;"
-          class="block w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-xl text-center shadow transition-all hover:scale-[1.02] active:scale-95 duration-200 mt-2 focus:outline-none relative z-[999]"
+          class="block w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-xl text-center shadow transition-all hover:scale-[1.02] active:scale-95 duration-200 mt-2 focus:outline-none relative z-10"
         >
           <strong class="block text-xs font-bold mb-0.5 tracking-wide uppercase">Hubungi Admin 1</strong>
           <span class="block text-[10px] opacity-90">Layanan Stokis & Program (Fast Response)</span>
         </a>
       </div>
 
+      <!-- Admin 2 -->
       <div class="bg-slate-50 p-6 md:p-8 rounded-xl shadow-md text-center border-t-4 border-emerald-600 flex flex-col justify-between transition-all duration-300 hover:shadow-lg">
         <div>
           <div class="w-28 h-28 mx-auto mb-4 rounded-full bg-slate-200 overflow-hidden border-2 border-emerald-100 flex items-center justify-center">
@@ -576,8 +363,7 @@
           href="https://wa.me/6282125032131?text=Halo%20Admin%20Sigit,%20saya%20ingin%20tanya%20mengenai%20pola%20pemeliharaan%20kebugaran%20dan%20informasi%20programnya" 
           target="_blank" 
           rel="noopener noreferrer"
-          onclick="window.location.href=this.href; return false;"
-          class="block w-full bg-emerald-600 hover:bg-emerald-700 text-white p-3 rounded-xl text-center shadow transition-all hover:scale-[1.02] active:scale-95 duration-200 mt-2 focus:outline-none relative z-[999]"
+          class="block w-full bg-emerald-600 hover:bg-emerald-700 text-white p-3 rounded-xl text-center shadow transition-all hover:scale-[1.02] active:scale-95 duration-200 mt-2 focus:outline-none relative z-10"
         >
           <strong class="block text-xs font-bold mb-0.5 tracking-wide uppercase">Hubungi Admin 2</strong>
           <span class="block text-[10px] opacity-90">Konsultasi Informasi & Edukasi</span>
@@ -601,7 +387,7 @@
   </div>
 </section>
     
-    <!-- TOMBOL KEMBALI GLOBAL -->
+<!-- TOMBOL KEMBALI -->
 <div class="max-w-6xl mx-auto px-4 my-8 text-center">
     <a href="index.html" class="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold px-6 py-3 rounded-xl shadow-md transition transform hover:scale-105">
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
@@ -609,10 +395,9 @@
     </a>
 </div>
 
-
+<!-- FOOTER -->
 <footer class="bg-gradient-to-b from-[#435424] to-[#556B2F] text-slate-400 py-8 px-4 text-center border-t border-slate-800/80 block">
   <div class="max-w-5xl mx-auto space-y-4">
-    
     <div class="flex justify-center gap-4 text-[11px] font-semibold tracking-wide">
       <button 
         type="button" 
@@ -637,19 +422,18 @@
         Situs web ini dikelola secara independen oleh representasi promotor mandiri untuk keperluan edukasi informasi dan sama sekali tidak berafiliasi, diendors, atau dikelola oleh Meta Platforms, Inc. atau Facebook, Inc. FACEBOOK dan META adalah merek dagang dari Meta Platforms, Inc.
       </p>
     </div>
-
   </div>
 </footer>
 
-<div id="privacy-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm transition-opacity duration-300 z-[9999]">
+<!-- MODAL PRIVASI -->
+<div id="privacy-modal" class="fixed inset-0 z-[9999] hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm transition-opacity duration-300">
   <div class="bg-white text-slate-800 w-full max-w-2xl rounded-2xl shadow-2xl flex flex-col max-h-[85vh] transform scale-95 transition-transform duration-300" id="modal-container">
-    
     <div class="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50 rounded-t-2xl">
       <h3 class="text-xs font-bold text-slate-800 uppercase tracking-wide flex items-center gap-2">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-	<path fill="currentColor" d="m20.42 6.11l-7.97-4c-.28-.14-.62-.14-.9 0l-7.97 4c-.31.15-.51.45-.55.79c-.01.11-.96 10.77 8.55 15.01a.98.98 0 0 0 .82 0C21.91 17.66 20.97 7 20.95 6.9a.98.98 0 0 0-.55-.79Z" />
-</svg>
- Privacy Policy & Terms of Service
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+          <path fill="currentColor" d="m20.42 6.11l-7.97-4c-.28-.14-.62-.14-.9 0l-7.97 4c-.31.15-.51.45-.55.79c-.01.11-.96 10.77 8.55 15.01a.98.98 0 0 0 .82 0C21.91 17.66 20.97 7 20.95 6.9a.98.98 0 0 0-.55-.79Z" />
+        </svg>
+        Privacy Policy & Terms of Service
       </h3>
       <button type="button" onclick="tutupPrivacyModal()" class="text-slate-400 hover:text-slate-600 font-bold text-lg p-1 focus:outline-none cursor-pointer">
         &times;
@@ -660,9 +444,7 @@
       <p class="font-semibold text-slate-800">Terakhir Diperbarui: Juni 2026</p>
       
       <h4 class="font-bold text-slate-900 text-sm border-b border-slate-100 pb-1 uppercase tracking-wide">I. Kebijakan Privasi (Privacy Policy)</h4>
-      <p>
-        Kami sangat berkomitmen untuk menjaga dan melindungi privasi data pribadi Anda selaku pengunjung situs web ini. Bagian ini menjelaskan bagaimana data Anda dikelola secara aman:
-      </p>
+      <p>Kami sangat berkomitmen untuk menjaga dan melindungi privasi data pribadi Anda selaku pengunjung situs web ini. Bagian ini menjelaskan bagaimana data Anda dikelola secara aman:</p>
       <ul class="list-disc pl-5 space-y-1">
         <li><strong>Pengumpulan Data:</strong> Kami hanya mengumpulkan informasi identitas dasar berupa Nama Lengkap, Domisili (Kota), serta jenis program acara yang Anda pilih secara sadar melalui formulir konfirmasi di halaman ini.</li>
         <li><strong>Tujuan Penggunaan:</strong> Seluruh data diolah secara internal guna keperluan verifikasi tiket masuk ruang virtual serta membantu mempermudah tim perwakilan kami dalam mengirimkan instruksi akses langsung melalui aplikasi komunikasi WhatsApp.</li>
@@ -670,9 +452,7 @@
       </ul>
 
       <h4 class="font-bold text-slate-900 text-sm border-b border-slate-100 pb-1 pt-3 uppercase tracking-wide">II. Syarat & Ketentuan (Terms of Service)</h4>
-      <p>
-        Dengan mengakses halaman ini serta memanfaatkan fitur formulir interaktif di dalamnya, Anda secara otomatis menyetujui seluruh ketentuan layanan berikut:
-      </p>
+      <p>Dengan mengakses halaman ini serta memanfaatkan fitur formulir interaktif di dalamnya, Anda secara otomatis menyetujui seluruh ketentuan layanan berikut:</p>
       <ul class="list-disc pl-5 space-y-1">
         <li><strong>Persetujuan Kontak (Consent):</strong> Anda memberikan izin dan hak penuh bagi perwakilan tim kami untuk memproses informasi dan menghubungi nomor WhatsApp Anda kembali guna mengirimkan tautan ruang virtual serta detail koordinasi terkait.</li>
         <li><strong>Akurasi Data:</strong> Pengguna berkewajiban mengisi data identitas asli demi kelancaran proses validasi pengiriman link masuk program edukasi komunitas harian.</li>
@@ -689,100 +469,76 @@
         Saya Mengerti & Tutup
       </button>
     </div>
-
   </div>
 </div>
 
-
+<!-- JAVASCRIPT -->
 <script>
-    let isMobileMenuOpen = false;
-    // NAVBAR
-    const navItemsList = ['hero', 'testimoni', 'kontak-kami'];
+  let isMobileMenuOpen = false;
+  const navItemsList = ['hero', 'testimoni', 'kontak-kami'];
 
-    // 1. Logika Efek Scroll Ganti Background & Deteksi Seksi Aktif (Scroll Spy)
-    window.addEventListener('scroll', () => {
-      const navbarElement = document.getElementById('main-navbar');
-      const scrollPos = window.scrollY + 100;
+  window.addEventListener('scroll', () => {
+    const navbarElement = document.getElementById('main-navbar');
+    const scrollPos = window.scrollY + 100;
 
-      if (window.scrollY > 10) {
-        navbarElement.classList.add('navbar-fixed');
-      } else {
-        navbarElement.classList.remove('navbar-fixed');
-      }
+    if (window.scrollY > 10) {
+      navbarElement.classList.add('navbar-fixed');
+    } else {
+      navbarElement.classList.remove('navbar-fixed');
+    }
 
-      navItemsList.forEach(id => {
-        const targetSection = document.getElementById(id);
-        if (targetSection) {
-          const sectionTop = targetSection.offsetTop;
-          const sectionHeight = targetSection.offsetHeight;
+    navItemsList.forEach(id => {
+      const targetSection = document.getElementById(id);
+      if (targetSection) {
+        const sectionTop = targetSection.offsetTop;
+        const sectionHeight = targetSection.offsetHeight;
 
-          if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
-            updateActiveNavStyle(id);
-          }
+        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+          updateActiveNavStyle(id);
         }
-      });
+      }
     });
+  });
 
-    // 2. Fungsi Pergeseran Lembut ke Target Seksi Saat Menu Di-klik
-    function scrollToNavSection(id) {
-      const element = document.getElementById(id);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-      if (isMobileMenuOpen) {
-        toggleMobileMenu();
-      }
+  function toggleMobileMenu() {
+    isMobileMenuOpen = !isMobileMenuOpen;
+    const dropdown = document.getElementById('mobile-menu-dropdown');
+    const iconMenu = document.getElementById('icon-menu');
+    const iconClose = document.getElementById('icon-close');
+
+    if (isMobileMenuOpen) {
+      dropdown.classList.remove('hidden');
+      iconMenu.classList.add('hidden');
+      iconClose.classList.remove('hidden');
+    } else {
+      dropdown.classList.add('hidden');
+      iconMenu.classList.remove('hidden');
+      iconClose.classList.add('hidden');
     }
+  }
 
-    // 3. Fungsi Kontrol Hamburger Menu Dropdown Mobile
-    function toggleMobileMenu() {
-      isMobileMenuOpen = !isMobileMenuOpen;
-      const dropdown = document.getElementById('mobile-menu-dropdown');
-      const iconMenu = document.getElementById('icon-menu');
-      const iconClose = document.getElementById('icon-close');
-
-      if (isMobileMenuOpen) {
-        dropdown.classList.remove('hidden');
-        iconMenu.classList.add('hidden');
-        iconClose.classList.remove('hidden');
-      } else {
-        dropdown.classList.add('hidden');
-        iconMenu.classList.remove('hidden');
-        iconClose.classList.add('hidden');
-      }
+  function updateActiveNavStyle(activeId) {
+    const mobButtons = document.getElementsByClassName('nav-mob-btn');
+    for (let btn of mobButtons) {
+      btn.className = 'nav-mob-btn block text-white py-2 font-semibold visited:text-amber-200';
     }
+    const currentActiveMob = document.getElementById(`nav-mob-${activeId}`);
+    if (currentActiveMob) {
+      currentActiveMob.className = 'nav-mob-btn block text-amber-300 py-2 font-semibold';
+    }
+  }
 
-    // 4. Manajemen Perubahan CSS Tombol Menu yang Aktif Mengikuti Posisi Layar
-    function updateActiveNavStyle(activeId) {
-      const deskButtons = document.getElementsByClassName('nav-desk-btn');
-      for (let btn of deskButtons) {
-        btn.className = 'nav-desk-btn px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-200 text-gray-700 hover:bg-blue-50 hover:text-blue-600 cursor-pointer';
-      }
-      const currentActiveDesk = document.getElementById(`nav-desk-${activeId}`);
-      if (currentActiveDesk) {
-        currentActiveDesk.className = 'nav-desk-btn px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-200 bg-blue-600 text-white cursor-pointer';
-      }
-
-      const mobButtons = document.getElementsByClassName('nav-mob-btn');
-      for (let btn of mobButtons) {
-        btn.className = 'nav-mob-btn w-full text-left px-4 py-3 rounded-lg font-semibold text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 cursor-pointer';
-      }
-      const currentActiveMob = document.getElementById(`nav-mob-${activeId}`);
-      if (currentActiveMob) {
-        currentActiveMob.className = 'nav-mob-btn w-full text-left px-4 py-3 rounded-lg font-semibold text-sm bg-blue-600 text-white cursor-pointer';
-      }
-    } 
-// Database Kategori dan Data Video Testimoni Bisnis (Higienis & Lolos Sensor Meta)
+  // Database Kategori dan Data Video Testimoni Bisnis
   const bizCategoriesData = {
     'diakui-tokoh': {
       caption: 'Produk, program, maupun komunitas kami telah mendapatkan apresiasi serta pengakuan dari berbagai tokoh masyarakat, praktisi kesehatan, dan pebisnis profesional.',
       videos: [
         { id: 'HB3mP6eoR_0', title: 'Validasi AP2LI', caption: 'Pengakuan dari Ketua Umum AP2LI terhadap kredibititas perusahaan terbaik di Indonesia.' },
         { id: 'Cj-GKR0V2gs', title: 'Kesaksian Tokoh', caption: 'Kesaksian dan validasi seorang tokoh terhadap manfaat produk transdermal patch terhadap kebugaran keluarga kolega.' },
-        { id: 'HWpl2pp1LRA', title: 'Validasi Praktisi', caption: 'Walaupun awalnya skpetis, beliau menjadi yakin pakai produk setelah mengetahui berbagai sertifikasi produk dan perusahaan yang diakui lembaga nasional dan internasional' },
-             ]
+        { id: 'HWpl2pp1LRA', title: 'Validasi Praktisi', caption: 'Walaupun awalnya skpetis, beliau menjadi yakin pakai produk setelah mengetahui berbagai sertifikasi produk dan perusahaan yang diakui lembaga nasional dan internasional' }
+      ]
     },
-     'alasan': {
+    'alasan': {
       caption: 'Dari seluruh mitra yang menjalankan pengembangan bisnis bersama komunitas kami, mayoritas telah merasakan kontribusi nyata produk untuk mendukung kebugaran diri dan stamina keluarga mereka.',
       videos: [
         { id: '5GAPnF9ur_g', title: 'Dukungan Stamina Keluarga', caption: 'Memutuskan menjalankan bisnis ini karena kualitas produk yang terbukti menjaga vitalitas fisik suami saat beraktivitas.' },
@@ -791,27 +547,27 @@
         { id: 'gItxijhWvwY', title: 'Pilihan Paket Kemitraan', caption: 'Setelah produk terbukti nyata membantu meningkatkan kebugaran harian ibu, akhirnya mantap berkomitmen mengambil paket kemitraan usaha terbaik.' }
       ]
     }, 
-     'testi': {
-      caption: 'Bagaimana ppengalaman mereka yang rutin memakai produk ini?',
+    'testi': {
+      caption: 'Bagaimana pengalaman mereka yang rutin memakai produk ini?',
       videos: [
-        { id: '-uaou1v3iuw', title: 'Dapatkan Stamina Muda', caption: 'Night for Gentlemen - Vitalitas kembali seperti usia 30 tahunan. ' },
+        { id: '-uaou1v3iuw', title: 'Dapatkan Stamina Muda', caption: 'Night for Gentlemen - Vitalitas kembali seperti usia 30 tahunan.' },
         { id: 'GBWZCB7lvkg', title: 'Beralih ke Suplemen Tempel', caption: 'Setelah merasakan peningkatan kebugaran, memutuskan mengganti suplemen ke suplemen tempel transdermal patch.' },
-        { id: 'Mi17XSm9mtM', title: 'PNG - Saraf Kejepit', caption: 'Dua tahun mengalami keluhan saraf kejepit sangat terbantu seteelah rutin memakai Painless Night Glu.' },
+        { id: 'Mi17XSm9mtM', title: 'PNG - Saraf Kejepit', caption: 'Dua tahun mengalami keluhan saraf kejepit sangat terbantu setelah rutin memakai Painless Night Glu.' },
         { id: 'UlspEmATDJ0', title: 'Keluhan lutut & Batu Empedu', caption: 'Niat awal rutin memakai transdermal untuk mengatasi keluhan lutut, keluhan batu empedu yang sudah lama diderita justru ikut hilang.' },
         { id: 'fOd9wJKOfJA', title: 'PNG - Pengapuran Sendi', caption: 'Divonis bantalan lutut habis, setelah pakai rutin Painless Night Glu kembali merasakan kenyamanan bergerak dan beraktivitas normal.' },
-        { id: 'EXysXRczmwQ', title: 'PNG - Sakit Pinggul', caption: 'Beliau sempat mengalami sakit pinggul sampai sulit berjalan. Setiap melangkah harus bungkuk karena rasa sakit dan tidak nyaman. Sejak rutin menggunakan PNG, perlahan kondisi saya mulai membaik dan sekarang sudah bisa berjalan lebih tegak dan bisa beraktivitas normal kembali.' },
-        { id: 'hssgSMBqkbU', title: 'PNG - Sakit Pundak', caption: 'Dulu setiap duduk terlalu lama atau aktivitas terlalu padat, punggung sering terasa sakit dan kurang nyaman. Tapi sejak kenal Painless Night Glu (PNG), rasanya jauh lebih nyaman dan aktivitas jadi lebih enak dijalani.' },
-        { id: '_bUesg3wpKw', title: 'PNG - Radang Rahim', caption: 'Selama 8 tahun menderita sakit pinggang luar biasa setiap bangun tidur dan nyeri hebat saat menstruasi. Selama bertahun-tahun, ia harus menghabiskan biaya medis hingga jutaan rupiah per bulan serta mencoba berbagai produk kesehatan tanpa hasil yang maksimal. Namun, setelah rutin menggunakan kombinasi koyo transdermal (painless dan ladies) dari MCI One selama 5 bulan, ia akhirnya terbebas total dari rasa sakit tersebut dengan biaya yang jauh lebih hemat, bahkan dua dokter kandungan yang merawatnya kini ikut bergabung menjadi mitra bisnisnya.' },
-        { id: 'Fg3paplD4d4', title: 'PNG - Tengkuk Kaku', caption: 'Keluhan tengkuk yang kaku sangat terbantu dengan memakai Painless Night Glus.' },
+        { id: 'EXysXRczmwQ', title: 'PNG - Sakit Pinggul', caption: 'Sempat mengalami sakit pinggul sampai sulit berjalan. Sejak rutin menggunakan PNG, kondisi mulai membaik dan sudah bisa beraktivitas normal kembali.' },
+        { id: 'hssgSMBqkbU', title: 'PNG - Sakit Pundak', caption: 'Dulu setiap duduk lama punggung terasa sakit. Sejak kenal Painless Night Glu (PNG), terasa jauh lebih nyaman.' },
+        { id: '_bUesg3wpKw', title: 'PNG - Radang Rahim', caption: 'Setelah rutin menggunakan kombinasi koyo transdermal selama 5 bulan, terbebas total dari rasa sakit.' },
+        { id: 'Fg3paplD4d4', title: 'PNG - Tengkuk Kaku', caption: 'Keluhan tengkuk kaku sangat terbantu dengan memakai Painless Night Glu.' },
         { id: 'Cj-GKR0V2gs', title: 'Bangkit dari Kelumpuhan', caption: 'Mengalami kelumpuhan hingga 2 tahun, kembali bisa melakukan aktivitas normal setelah memakai kombinasi produk Transdermal Patch.' }
       ]
     },
     'trip-pertama': {
-      caption: 'Di komunitas kami, kesempatan meraih penghargaan perjalanan internasional dan umroh terbuka untuk siapa saja. Banyak mitra baru yang berhasil mencapainya dalam waktu relatif singkat.',
+      caption: 'Di komunitas kami, kesempatan meraih penghargaan perjalanan internasional dan umroh terbuka untuk siapa saja.',
       videos: [
         { id: 'ZIC3CKkviJY', title: 'Pencapaian Mitra Baru', caption: 'Momentum luar biasa para mitra baru yang berhasil meraih penghargaan perjalanan internasional pertama mereka.' },
         { id: 'bx_2cxAuFTI', title: 'Impian Perjalanan Luar Negeri', caption: 'Pengalaman berharga mitra yang berhasil mewujudkan impian perjalanan luar negeri bersama perwakilan komunitas.' },
-        { id: 'q-BbznvLE7s', title: 'Mitra Baru Bisa Dong', caption: 'Konsistensi menjalankan peta jalan bisnis terbukti membuahkan hasil penghargaan perjalanan internasional resmi dalam waktu singkat.' }
+        { id: 'q-BbznvLE7s', title: 'Mitra Baru Bisa Dong', caption: 'Konsistensi menjalankan peta jalan bisnis terbukti membuahkan hasil penghargaan perjalanan internasional resmi.' }
       ]
     },
     'dokumentasi': {
@@ -823,11 +579,11 @@
       ]
     },
     'cash-reward': {
-      caption: 'Penghargaan prestasi pengembangan usaha yang diberikan sebagai apresiasi atas dedikasi mitra dalam membangun jaringan promosi secara akumulatif.',
+      caption: 'Penghargaan prestasi pengembangan usaha yang diberikan sebagai apresiasi atas dedikasi mitra.',
       videos: [
         { id: 'LCHrAhdURDk', title: 'Penghargaan Prestasi Utama', caption: 'Apresiasi pada pasangan berprestasi.' },
-        { id: 'tXzj-YsrqHo', title: 'Apresiasi Pencapaian Tim', caption: 'Puluhan mitra berprestasi yang berhasil membuktikan keberhasilan sistem edukasi dalam periode tahunan.' },
-        { id: 'pMGaTCyWuYA', title: 'Konsistensi Membuahkan Hasil', caption: 'Bukti nyata bahwa latar belakang apa pun bisa meraih prestasi kepemimpinan bisnis dengan kerja keras terarah.' }
+        { id: 'tXzj-YsrqHo', title: 'Apresiasi Pencapaian Tim', caption: 'Puluhan mitra berprestasi yang berhasil membuktikan keberhasilan sistem edukasi.' },
+        { id: 'pMGaTCyWuYA', title: 'Konsistensi Membuahkan Hasil', caption: 'Bukti nyata bahwa latar belakang apa pun bisa meraih prestasi kepemimpinan bisnis.' }
       ]
     }
   };
@@ -835,56 +591,46 @@
   let currentBizCategoryId = 'diakui-tokoh';
   let activeBizVideoId = 'HB3mP6eoR_0';
 
-  // Inisialisasi awal saat halaman pertama kali dimuat
   window.addEventListener('DOMContentLoaded', () => {
     renderBizThumbnails(currentBizCategoryId, false);
   });
 
-  // Fungsi mengganti kategori utama (Tab atas)
   function changeBizCategory(catId) {
     currentBizCategoryId = catId;
     
-    // Update teks deskripsi kategori
     const catCaptionEl = document.getElementById('biz-category-caption');
     if (catCaptionEl) {
       catCaptionEl.innerText = bizCategoriesData[catId].caption;
     }
 
-    // Manajemen class active pada elemen tombol tab
     const tabButtons = document.getElementsByClassName('biz-tab-btn');
     for (let btn of tabButtons) {
       btn.classList.remove('bg-blue-600', 'text-white', 'border-blue-600');
       btn.classList.add('bg-slate-100', 'text-slate-500', 'border-slate-200', 'hover:bg-slate-200');
     }
+    
     const currentActiveTab = document.getElementById(`biz-tab-${catId}`);
     if (currentActiveTab) {
       currentActiveTab.classList.add('bg-blue-600', 'text-white', 'border-blue-600');
       currentActiveTab.classList.remove('bg-slate-100', 'text-slate-500', 'border-slate-200', 'hover:bg-slate-200');
-
-      // Geser tab agar berada di tengah layar secara smooth jika mobile overflow
       currentActiveTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
 
-    // Render deretan thumbnail video kategori baru (tanpa auto-play saat pindah tab)
     renderBizThumbnails(catId, false);
   }
 
-  // Fungsi me-render thumbnail video secara dinamis
   function renderBizThumbnails(catId, shouldAutoplay = false) {
     const category = bizCategoriesData[catId];
     const container = document.getElementById('biz-thumbnails-container');
     if (!container || !category) return;
     
-    container.innerHTML = ''; // Reset kontainer thumbnail
+    container.innerHTML = '';
 
-    // Tentukan video pertama kategori sebagai video default aktif harian
     const defaultVideo = category.videos[0];
     activeBizVideoId = defaultVideo.id;
     
-    // Sinkronisasi video iframe utama & caption teks bawah
     updateBizMainVideo(defaultVideo.id, defaultVideo.caption, shouldAutoplay);
 
-    // Loop pembuatan item tombol thumbnail
     category.videos.forEach((video, index) => {
       const isVideoActive = video.id === activeBizVideoId;
       
@@ -893,10 +639,8 @@
       button.id = `biz-thumb-${video.id}-${index}`;
       button.onclick = () => handleBizVideoSelect(video, index);
       
-      // Mengatur class list dasar struktur flex
       button.classList.add('flex-shrink-0', 'w-32', 'sm:w-40', 'rounded', 'overflow-hidden', 'transition-all', 'duration-200', 'cursor-pointer');
       
-      // Logika styling penanda aktif/tidak aktif teratur
       if (isVideoActive) {
         button.classList.add('ring-2', 'ring-blue-600', 'bg-blue-50', 'shadow-sm');
       } else {
@@ -914,12 +658,10 @@
     });
   }
 
-  // Fungsi dipicu saat user mengeklik salah satu thumbnail video
   function handleBizVideoSelect(video, index) {
     activeBizVideoId = video.id;
-    updateBizMainVideo(video.id, video.caption, true); // True agar langsung memutar video pilihan
+    updateBizMainVideo(video.id, video.caption, true);
 
-    // Manajemen class ring border interaktif thumbnail secara higienis
     const category = bizCategoriesData[currentBizCategoryId];
     if (category) {
       category.videos.forEach((v, idx) => {
@@ -936,19 +678,16 @@
       });
     }
 
-    // Auto centering posisi scroll thumbnail aktif secara smooth
     const activeThumb = document.getElementById(`biz-thumb-${video.id}-${index}`);
     if (activeThumb) {
       activeThumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
   }
 
-  // Fungsi memperbarui link src iframe video utama & teks caption di bawahnya
   function updateBizMainVideo(id, caption, autoplay) {
     const videoIframe = document.getElementById('biz-main-video');
     if (!videoIframe) return;
     
-    // Tambahkan parameter mute=1 jika autoplay aktif untuk menembus aturan privasi browser modern
     const autoplayParam = autoplay ? '&autoplay=1&mute=1' : '';
     videoIframe.src = `https://www.youtube.com/embed/${id}?enablejsapi=1&modestbranding=1&rel=0${autoplayParam}`;
     
@@ -957,9 +696,8 @@
       captionElement.innerText = caption;
     }
   }
-  
-    //footer
-function bukaPrivacyModal() {
+
+  function bukaPrivacyModal() {
     const modal = document.getElementById('privacy-modal');
     const container = document.getElementById('modal-container');
     
@@ -989,24 +727,12 @@ function bukaPrivacyModal() {
     document.body.style.overflow = '';
   }
 
-  // Klik di luar area kotak putih untuk menutup otomatis
   window.onclick = function(event) {
     const modal = document.getElementById('privacy-modal');
     if (event.target === modal) {
       tutupPrivacyModal();
     }
   }
-  // buka link tutup
-  function bukaLinkTanpaPindah(url) {
-    const tabBaru = window.open(url, '_blank');
-    if (tabBaru) {
-      window.focus();
-    }
-  }
-
-  function tutupAksi() {
-    alert('Tombol tutup diklik!');
-  }
-  </script>
-  </body>
-  </html>
+</script>
+</body>
+</html>
