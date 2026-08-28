@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Edukasi Nutrisi Transdermal | MCI One More Bekasi.</title>
+  <meta name="description" content="Mengapa suplemen tempel transdermal lebih unggul dari metode lain?">
+  <meta name="robots" content="index, follow">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://transdermal.suplementempel.com/">
+  <meta property="og:title" content="Portal Edukasi Nutrisi Transdermal | MCI One More Bekasi.">
+  <meta property="og:description" content="Mengapa suplemen tempel transdermal lebih unggul dari metode lain & bagaimana peluang pasarnya?.">
+  <meta property="og:image" content="https://mci.suplementempel.com/hero-preview.png">
+
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://stokisonemorebekasi.com/">
+  <meta property="twitter:title" content="Portal Edukasi Nutrisi Transdermal | MCI One More Bekasi.">
+  <meta property="twitter:description" content="Mengapa suplemen tempel transdermal lebih unggul dari metode lain & bagaimana peluang pasarnya?">
+  <meta property="twitter:image" content="https://transdermal.suplementempel.com/hero-preview.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+  <style>
+      /* ═══════════════════════════════════════════════════════════════════
+         SCROLL MARGIN UNTUK ANCHOR LINK (agar tidak tertutup navbar)
+      ═══════════════════════════════════════════════════════════════════ */
+      #hero,
+      #edukasi,
+      #testi,
+      #kontak-kami {
+          scroll-margin-top: 80px;
+      }
+
+      /* ═══════════════════════════════════════════════════════════════════
+         watermark (Sudah Diperbaiki: Bisa Copas)
+      ═══════════════════════════════════════════════════════════════════ */
+      .watermark-overlay-full {
+          position: fixed !important;
+          inset: 0 !important;
+          z-index: 50 !important;
+          pointer-events: none !important; 
+          opacity: 0.03; 
+          
+          /* Membuat pola teks miring berulang otomatis memenuhi seluruh layar */
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150' viewBox='0 0 150 150'%3E%3Ctext x='50%25' y='50%25' font-family='sans-serif' font-weight='bold' font-size='16' fill='%23000000' text-anchor='middle' transform='rotate(-45 75 75)' letter-spacing='2'%3EMCI_CB%3C/text%3E%3C/svg%3E");
+          background-repeat: repeat !important;
+      }
+
+      /* ═══════════════════════════════════════════════════════════════════
+         NAVBAR STYLES
+      ═══════════════════════════════════════════════════════════════════ */
+      .navbar-fixed {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 9999;
+          background: rgba(255, 255, 255, 0.98);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+          transition: all 0.3s ease;
+      }
+
+      .navbar-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+      }
+
+      .navbar-inner {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 70px;
+      }
+
+      .navbar-logo {
+          font-family: 'Poppins', sans-serif;
+          font-weight: 700;
+          font-size: 1.25rem;
+          color: #1a73e8;
+          text-decoration: none;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+      }
+
+      .navbar-logo span {
+          background: linear-gradient(135deg, #1a73e8 0%, #0d62d0 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+      }
+
+      .navbar-menu {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+      }
+
+      .navbar-menu li {
+          margin: 0;
+      }
+
+      .navbar-menu a {
+          font-family: 'Poppins', sans-serif;
+          font-weight: 600;
+          font-size: 0.875rem;
+          color: #3c4043;
+          text-decoration: none;
+          padding: 10px 18px;
+          border-radius: 8px;
+          transition: all 0.2s ease;
+          display: block;
+      }
+
+      .navbar-menu a:hover {
+          background-color: #e8f0fe;
+          color: #1a73e8;
+      }
+
+      .navbar-menu a.active {
+          background-color: #1a73e8;
+          color: #ffffff;
+      }
+
+      .navbar-toggle {
+          display: none;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 8px;
+      }
+
+      .navbar-toggle span {
+          display: block;
+          width: 24px;
+          height: 3px;
+          background-color: #3c4043;
+          border-radius: 2px;
+          transition: all 0.3s ease;
+      }
+
+      .navbar-toggle span:nth-child(2) {
+          margin: 5px 0;
+      }
+
+      .navbar-toggle.active span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+      }
+
+      .navbar-toggle.active span:nth-child(2) {
+          opacity: 0;
+      }
+
+      .navbar-toggle.active span:nth-child(3) {
+          transform: rotate(-45deg) translate(7px, -6px);
+      }
+
+      /* Mobile Menu */
+      @media (max-width: 768px) {
+          .navbar-toggle {
+              display: block;
+          }
+
+          .navbar-menu {
+              position: absolute;
+              top: 70px;
+              left: 0;
+              right: 0;
+              background: rgba(255, 255, 255, 0.98);
+              backdrop-filter: blur(10px);
+              -webkit-backdrop-filter: blur(10px);
+              flex-direction: column;
+              padding: 20px;
+              gap: 5px;
+              box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+              transform: translateY(-100%);
+              opacity: 0;
+              visibility: hidden;
+              transition: all 0.3s ease;
+          }
+
+          .navbar-menu.open {
+              transform: translateY(0);
+              opacity: 1;
+              visibility: visible;
+          }
+
+          .navbar-menu a {
+              width: 100%;
+              text-align: center;
+              padding: 14px 20px;
+          }
+      }
+
+      /* ═══════════════════════════════════════════════════════════════════
+         EDUKASI SECTION STYLES
+      ═══════════════════════════════════════════════════════════════════ */
+      .edu-section,
+      .edu-section * {
+          font-family: 'Poppins', sans-serif;
+          box-sizing: border-box;
+      }
+
+      .edu-box-yellow {
+          border-left: 5px solid #ffcc00;
+          background-color: #fffaf0;
+      }
+
+      .edu-box-red {
+          border-left: 5px solid #e53e3e;
+          background-color: #fff5f5;
+      }
+
+      .edu-science-box {
+          background-color: #f7fafc;
+          border: 1px solid #e2e8f0;
+          border-radius: 8px;
+      }
+
+      .edu-th-blue {
+          background-color: #1a73e8;
+          color: #ffffff;
+      }
+
+      .edu-td-green {
+          background-color: #f0fdf4;
+          color: #16a34a;
+          font-weight: 600;
+      }
+
+      .edu-td-darkgreen {
+          background-color: #f0fdf4;
+          color: #137333;
+          font-weight: 700;
+      }
+
+      .edu-responsive-img {
+          display: block;
+          margin: 0 auto;
+          max-width: 100%;
+          height: auto;
+      }
+
+      /* Kondisi Layar HP (Kecil di bawah 768px) */
+      @media (max-width: 767px) {
+          #desktop-menu-list {
+            display: none !important; 
+          }
+          #nav-toggle-btn {
+            display: block !important; 
+          }
+      }
+
+      /* Kondisi Layar Desktop/Tablet (768px ke atas) */
+      @media (min-width: 768px) {
+          #desktop-menu-list {
+            display: flex !important; 
+          }
+          #nav-toggle-btn {
+            display: none !important; 
+          }
+          #mobile-menu-dropdown {
+            display: none !important; 
+          }
+      }    
+      
+      /* Izinkan internal anchor links tapi hindari default behavior */
+      a[href^="#"] {
+        pointer-events: auto;
+      }
+  </style>
+</head>
+<body class="bg-white">
+<div class="watermark-overlay-full"></div>
+
+<!-- GLOBAL NAVBAR -->
+<nav class="fixed top-0 left-0 right-0 z-50 bg-[#556B2F]/95 backdrop-blur-sm shadow-md border-b border-white/10">
+    <div class="max-w-6xl mx-auto px-4 flex justify-between items-center h-16">
+        <a href="index.html" class="flex items-center gap-2 font-bold text-white text-lg tracking-wide">
+            <span class="text-amber-300">Stokis Resmi</span> MCI One More
+        </a>
+        <!-- Desktop Links -->
+        <ul class="hidden md:flex space-x-1 font-semibold text-sm">
+            <li><a href="index.html" class="text-white hover:bg-white/10 px-3 py-2 rounded-lg transition visited:text-amber-200">Beranda</a></li>
+            <li><a href="transdermal.html" class="text-white hover:bg-white/10 px-3 py-2 rounded-lg transition visited:text-amber-200">Transdermal</a></li>
+            <li><a href="produk.html" class="text-white hover:bg-white/10 px-3 py-2 rounded-lg transition visited:text-amber-200">Produk & Sertifikat</a></li>
+            <li><a href="testimoni.html" class="text-white hover:bg-white/10 px-3 py-2 rounded-lg transition visited:text-amber-200">Testimoni</a></li>
+            <li><a href="reward.html" class="text-white hover:bg-white/10 px-3 py-2 rounded-lg transition visited:text-amber-200">Reward</a></li>
+            <li><a href="kontak.html" class="text-white hover:bg-white/10 px-3 py-2 rounded-lg transition visited:text-amber-200">Kontak</a></li>
+        </ul>
+        <!-- Hamburger (Mobile) -->
+        <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-white p-2">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+    </div>
+    <!-- Mobile Links -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#556B2F] border-t border-white/10 px-4 py-3 space-y-1">
+        <a href="index.html" class="block text-white py-2 font-semibold visited:text-amber-200">Beranda</a>
+        <a href="transdermal.html" class="block text-white py-2 font-semibold visited:text-amber-200">Transdermal</a>
+        <a href="produk.html" class="block text-white py-2 font-semibold visited:text-amber-200">Produk & Sertifikat</a>
+        <a href="testimoni.html" class="block text-white py-2 font-semibold visited:text-amber-200">Testimoni</a>
+        <a href="reward.html" class="block text-white py-2 font-semibold visited:text-amber-200">Reward</a>
+        <a href="kontak.html" class="block text-white py-2 font-semibold visited:text-amber-200">Kontak</a>
+    </div>
+
+<div class="h-16 md:h-18"></div>
+
+<section 
+  id="hero" 
+  class="bg-gradient-to-br from-slate-50 via-teal-50/30 to-emerald-50/50 py-12 md:py-20 px-4 text-slate-800 overflow-hidden block border-b border-slate-200"
+>
+  <div class="max-w-6xl mx-auto">
+    
+    <div class="text-center mb-5">
+      <span class="bg-emerald-100 text-emerald-800 border border-emerald-200 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider inline-block uppercase shadow-sm">
+        🧬 Portal Edukasi Nutrisi Transdermal
+      </span>
+    </div>
+
+    <h1 class="text-center text-2xl md:text-5xl font-extrabold leading-tight text-slate-900 max-w-4xl px-2 mx-auto mb-5 tracking-tight">
+      Mengenal Teknologi <em class="italic font-semibold">Transdermal Patch</em>: <span class="text-emerald-600 block md:inline">Mengapa Nutrisi Lewat Kulit Jauh Lebih Efisien?</span>
+    </h1>
+
+    <p class="text-slate-600 text-center text-sm md:text-lg font-medium max-w-3xl mx-auto leading-relaxed mb-12">
+      Analisis komparatif sistem penghantaran nutrisi transdermal vs konvensional
+    </p>
+
+    <div class="flex flex-col lg:flex-row gap-8 justify-center items-stretch">
+      
+      <div class="flex-1 lg:max-w-xl bg-white p-5 rounded-2xl border border-slate-200 shadow-xl flex flex-col justify-between relative group">
+        <div class="w-full max-w-3xl mx-auto overflow-hidden rounded-xl shadow-lg">
+          <img 
+            src="https://res.cloudinary.com/dbnwkc0j0/image/upload/v1782530558/p1160466img_XL_crsnne.jpg" 
+            alt="Metode Transdermal" 
+            class="w-full aspect-video object-cover"
+            loading="eager"
+          />
+        </div>
+        <p id="video-caption" class="text-center text-[12px] text-slate-500 mt-3 font-medium italic block">
+          Ilustrasi pemakaian suplemen tempel transdermal
+        </p>
+      </div>
+
+      <div class="flex-1 lg:max-w-md bg-white p-6 rounded-2xl border border-slate-200 shadow-xl flex flex-col justify-between">
+        <div>
+          <p class="text-slate-900 text-base font-extrabold text-center mb-5 leading-snug uppercase tracking-wide border-b border-slate-100 pb-3">
+            Fakta Bioavailabilitas Sistem Tempel
+          </p>
+          
+          <div class="text-slate-600 text-xs space-y-4 mb-6">
+            <div class="flex items-start gap-3 p-4 bg-slate-50 rounded-xl border-l-4 border-emerald-500 shadow-sm leading-relaxed">
+              <span class="text-sm flex-shrink-0 text-emerald-500">🛡️</span>
+              <span>
+                <strong class="text-slate-900 font-bold">Menghindari <em class="italic">First-Pass Effect:</em></strong> Nutrisi langsung masuk melalui pori-pori kulit menuju kapiler darah. Formula aktif terhindar dari kerusakan akibat asam lambung dan filter hati, menghasilkan efisiensi penyerapan hingga <strong class="text-emerald-600 font-extrabold text-sm">95% secara konstan.</strong>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="w-full text-center block mt-auto">
+          <div class="w-full bg-gradient-to-br from-slate-900 to-slate-800 text-emerald-400 p-3.5 rounded-xl text-[10px] md:text-xs font-bold shadow-md uppercase tracking-wider leading-snug">
+            👇 BACA SELENGKAPNYA DI BAWAH: DATA KOMPARASI FISIK & BIOLOGIS 👇
+          </div>
+          <p class="text-[11px] text-slate-400 mt-2.5 font-medium">
+            Gulir ke bawah untuk membedah kalkulasi biaya, anatusi penyerapan, dan uji efisiensi dibanding metode konvensional.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+ 
+<section id="edukasi" class="py-12 md:py-20 px-4 block bg-white">
+  <div class="max-w-4xl mx-auto">
+    
+    <h2 class="text-center font-extrabold leading-snug text-slate-900 mb-10 text-xl md:text-3xl max-w-3xl mx-auto tracking-tight">
+      Memahami Cara Kerja Tubuh: Mengapa Metode Penyerapan Nutrisi Sangat Menentukan Kualitas Kebugaran Anda?
+    </h2>
+
+    <div class="border-l-4 border-emerald-500 bg-emerald-50/40 rounded-r-2xl p-6 mb-6 block shadow-sm">
+      <p class="font-bold text-emerald-900 mb-2 text-sm md:text-base flex items-center gap-2">
+        <span>⚙️</span> Mengenali Sinyal Alami Sistem Pemulihan Tubuh
+      </p>
+      <p class="leading-relaxed text-slate-700 text-sm md:text-base">
+        <strong>Pernah merasa tingkat produktivitas menurun karena tubuh mudah lelah, padahal pola makan dan istirahat Anda sudah terjaga?</strong> Kondisi tersebut merupakan indikator alami bahwa tubuh memiliki mekanisme pertahanan yang sangat cerdas. Saat aktivitas fisik meningkat, tubuh secara mandiri mengirimkan sinyal agar kita memberikan jeda dan dukungan nutrisi mikro berkualitas tinggi. Dukungan asupan yang tepat sangat dibutuhkan guna mengoptimalkan kembali stabilitas energi langsung dari dalam sel.
+      </p>
+    </div>
+
+    <div class="border-l-4 border-blue-600 bg-blue-50/40 rounded-r-2xl p-6 mb-12 block shadow-sm">
+      <p class="font-bold text-blue-900 mb-2 text-sm md:text-base flex items-center gap-2">
+        <span>💡</span> Tantangan Efisiensi Metode Penghantaran Konvensional
+      </p>
+      <p class="leading-relaxed text-slate-700 text-sm md:text-base">
+        <strong>FAKTA BIOLOGIS:</strong> Zat aktif atau nutrisi yang dikonsumsi secara konvensional harus melewati fase pemecahan di lambung dan penyaringan di hati <em class="italic font-semibold">(First-Pass Metabolism)</em>. Proses metabolisme yang panjang ini secara alami dapat mereduksi sebagian konsentrasi zat sebelum akhirnya mencapai sirkulasi darah. Inilah alasan mengapa optimalisasi stamina terkadang membutuhkan waktu yang lebih lama. Di sisi lain, peningkatan porsi konsumsi harian secara berlebih juga dibatasi oleh kapasitas alami organ pencernaan kita.
+      </p>
+    </div>
+    
+    <h2 class="text-center font-extrabold leading-snug text-slate-900 mb-10 text-xl md:text-3xl max-w-3xl mx-auto tracking-tight">Metode Penghantaran Nutrisi</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 bg-white mb-14">
+
+  <!-- Metode oral -->
+  <div class="bg-gradient-to-br from-slate-50 via-teal-50/30 to-emerald-50/50 border border-slate-100 rounded-xl overflow-hidden shadow-md flex flex-col justify-between group">
+    <!-- Kontainer Gambar Persegi -->
+    <div class="w-full aspect-square bg-slate-200 overflow-hidden relative">
+      <img 
+        src="https://res.cloudinary.com/dbnwkc0j0/image/upload/v1782530254/man-with-pill-3282_kvd5sa.jpg" 
+        alt="Metode Oral" 
+        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+        loading="lazy"
+      />
+    </div>
+    
+    <!-- Bagian Keterangan Teks di Bawah Gambar -->
+    <div class="p-3.5 flex-1 flex flex-col justify-between gap-1">
+      <div>
+        <p class="text-center text-slate-800  text-xs md:text-sm font-bold tracking-tight line-clamp-1 group-hover:text-blue-100 transition">
+          Metode Oral / Konvensional
+        </p>
+        <p class="text-center text-slate-700 text-[11px] md:text-xs line-clamp-2 mt-0.5 leading-relaxed">
+          Bioavailabilitas rata-rata 10–50%
+        </p>
+      </div>
+    </div>
+  </div>
+  
+    <!-- Metode Injeksi Intravena -->
+  <div class="bg-gradient-to-br from-slate-50 via-teal-50/30 to-emerald-50/50 border border-slate-100 rounded-xl overflow-hidden shadow-md flex flex-col justify-between group">
+    <!-- Kontainer Gambar Persegi -->
+    <div class="w-full aspect-square bg-slate-200 overflow-hidden relative">
+      <img 
+        src="https://res.cloudinary.com/dbnwkc0j0/image/upload/v1782530157/seputar-iv-intravena-mulai-dari-cara-pasang-hingga-efek-sampingnya-0-alodokter_deydqw.jpg" 
+        alt="Metode Injeksi Intravena" 
+        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+        loading="lazy"
+      />
+    </div>
+    
+    <!-- Bagian Keterangan Teks di Bawah Gambar -->
+    <div class="p-3.5 flex-1 flex flex-col justify-between gap-1">
+      <div>
+        <p class="text-center text-slate-800  text-xs md:text-sm font-bold tracking-tight line-clamp-1 group-hover:text-blue-100 transition">
+          Metode Injeksi Intravena
+        </p>
+        <p class="text-center text-slate-700 text-[11px] md:text-xs line-clamp-2 mt-0.5 leading-relaxed">
+          Bioavailabilitas 100%
+        </p>
+      </div>
+    </div>
+  </div>
+    <!-- Metode Sublingual -->
+  <div class="bg-gradient-to-br from-slate-50 via-teal-50/30 to-emerald-50/50 border border-slate-100 rounded-xl overflow-hidden shadow-md flex flex-col justify-between group">
+    <!-- Kontainer Gambar Persegi -->
+    <div class="w-full aspect-square bg-slate-200 overflow-hidden relative">
+      <img 
+        src="https://res.cloudinary.com/dbnwkc0j0/image/upload/v1782530505/32-1_h8yt1b.jpg" 
+        alt="Metode Sublingual" 
+        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+        loading="lazy"
+      />
+    </div>
+    
+    <!-- Bagian Keterangan Teks di Bawah Gambar -->
+    <div class="p-3.5 flex-1 flex flex-col justify-between gap-1">
+      <div>
+        <p class="text-center text-slate-800  text-xs md:text-sm font-bold tracking-tight line-clamp-1 group-hover:text-blue-100 transition">
+          Metode Sublingual
+        </p>
+        <p class="text-center text-slate-700 text-[11px] md:text-xs line-clamp-2 mt-0.5 leading-relaxed">
+          Bioavailabilitas rata-rata 50–80%
+        </p>
+      </div>
+    </div>
+  </div>
+        <!-- Metode Transdermal -->
+  <div class="bg-gradient-to-br from-slate-50 via-teal-50/30 to-emerald-50/50 border border-slate-100 rounded-xl overflow-hidden shadow-md flex flex-col justify-between group">
+    <!-- Kontainer Gambar Persegi -->
+    <div class="w-full aspect-square bg-slate-200 overflow-hidden relative">
+      <img 
+        src="https://res.cloudinary.com/dbnwkc0j0/image/upload/v1782530558/p1160466img_XL_crsnne.jpg" 
+        alt="Metode Transdermal" 
+        class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+        loading="lazy"
+      />
+    </div>
+    
+    <!-- Bagian Keterangan Teks di Bawah Gambar -->
+    <div class="p-3.5 flex-1 flex flex-col justify-between gap-1">
+      <div>
+        <p class="text-center text-slate-800  text-xs md:text-sm font-bold tracking-tight line-clamp-1 group-hover:text-blue-100 transition">
+          Metode Transdermal
+        </p>
+        <p class="text-center text-slate-700 text-[11px] md:text-xs line-clamp-2 mt-0.5 leading-relaxed">
+          Bioavailabilitas hingga 95%
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  
+  </div>
+ 
+    <div class="mt-16 block">
+      <div class="text-center font-extrabold text-slate-900 leading-snug mb-6 text-lg md:text-xl max-w-xl mx-auto px-4 tracking-tight">
+        Komparasi Efisiensi Penyerapan Metode Penghantaran Nutrisi (Bioavailabilitas)
+      </div>
+          <div class="w-full lg:w-[80%] mb-12 mx-auto">
+      <img 
+        src="https://res.cloudinary.com/dbnwkc0j0/image/upload/v1782542020/tabel_dxhrxp.svg" 
+        loading="lazy" 
+        alt="Komparasi Efisiensi Penyerapan Metode Penghantaran Nutrisi (Bioavailabilitas)." 
+        class="w-full h-auto rounded-sm shadow-md border border-slate-100 object-contain block mx-auto"
+      >
+      <span class="block text-xs text-slate-400 mt-2 italic text-center">
+        *Tabel komparasi bioavailabilitas dari berbagai metode panghantaran nutrisi.
+      </span>
+    </div>
+      <p class="leading-relaxed text-slate-700 text-sm md:text-base">
+        Dari tabel dapat dilihat bahwa metode injeksi, khususnya jenis intravena (IV) memiliki bioavailibilitas tertinggi, penyerapan paling cepat, namun kurang praktis karena butuh tenaga medis mengaplikasikan dan memiliki resiko infeksi, dan tidak memungkinkan digunakan harian.<br><br>Pada metode konvensional dengan oral cair efisiensi penyerapan nutrisi hingga 50% dan untuk metode oral padat efisiensinya paling rendah diantara yang lain karena terdegradasi oleh sistem pencernaan dan melalui metablisme hati.<br><br>Metode <strong><a href="https://produk.suplementempel.com" class="text-blue-500 underline hover:text-blue-700 hover:no-underline transition duration-300">transdermal</a></strong> bioavailabilitas mendekati 100% dengan keunggulan nutrisi tidak melalui <em class="italic">First-pass metabolism</em> hati, tanpa degradasi karena sistem pencernaan, non invasive, dengan metode pelepasan sustain release menjadikan metode ini paling praktis, aman, dan efisien.
+      </div>
+</div>
+
+    <h2 class="text-center font-extrabold leading-snug text-slate-900 mb-10 text-xl md:text-3xl max-w-3xl mx-auto tracking-tight mt-12">
+      Pendekatan Baru: Sistem Penghantaran Transdermal
+    </h2>
+
+    <p class="text-center font-medium text-slate-600 leading-relaxed mb-10 text-sm md:text-base mt-3 max-w-2xl mx-auto">
+      Solusi praktis dalam menjaga stabilitas energi bagi Anda yang aktif, produktif, and mengutamakan efisiensi pemeliharaan kesehatan jangka panjang.<br/>
+      
+      <span class="text-emerald-600 font-bold block mt-3 text-base">
+        Melalui media aplikasi pada kulit, formula aktif diserap secara bertahap dan dialirkan langsung menuju sistem sirkulasi tanpa membebani lambung.
+      </span>
+    </p>
+
+    <div class="leading-relaxed text-slate-700 max-w-3xl mx-auto text-sm md:text-base space-y-6"">
+      <img 
+        src="https://res.cloudinary.com/dbnwkc0j0/image/upload/v1782475768/transformasi_impls1.webp" 
+        loading="lazy" 
+        alt="Nutrisi Transdermal menjadikan hidup lebih mudah & praktis." 
+        class="w-full h-auto rounded-2xl shadow-md border border-slate-100 object-contain block mx-auto"
+      >
+      <span class="block text-xs text-slate-400 mt-2 italic text-center">
+        *Ilustrasi: Penerapan sistem transdermal untuk efisiensi gaya hidup modern yang praktis.
+      </span>
+    </div>
+    
+    <div class="text-center font-extrabold text-blue-900 mt-16 mb-8 text-xl md:text-2xl tracking-tight">
+      🔬 "Bagaimana Mekanisme Zat Aktif Meresap Melalui Lapisan Kulit?"
+    </div>
+
+    <div class="leading-relaxed text-slate-700 max-w-3xl mx-auto text-sm md:text-base space-y-6">
+      
+      <div class="w-full mb-8 text-left">
+        <img 
+          src="https://res.cloudinary.com/dbnwkc0j0/image/upload/v1782475761/ilustrasi_penghantaran_nutrisi_transdermal1_itmrg2.webp" 
+          loading="lazy" 
+          alt="Bagaimana Transdermal menutrisi tubuh?" 
+          class="w-full h-auto rounded-2xl shadow-md border border-slate-100 object-contain block mx-auto"
+        >
+        <span class="block text-xs text-slate-400 mt-2 italic text-center">
+          *Ilustrasi: Jalur penyerapan formula mikro-nano melalui matriks lapisan epidermis kulit. 
+        </span>
+      </div>
+
+      <p class="leading-relaxed text-slate-700 text-sm md:text-base">
+        Aplikasi suplemen luar (<em class="italic font-semibold">Transdermal Patch</em>) mengadopsi teknologi <strong>TTS (<em>Transdermal Therapeutic System</em>)</strong>. Molekul didesain secara presisi dengan skala nano, memungkinkan zat aktif menembus lipid antar-sel kulit secara pasif dan aman, kemudian didistribusikan oleh pembuluh darah mikro untuk mendukung kebugaran fisik.
+      </p>
+
+      <p class="leading-relaxed text-slate-700 text-sm md:text-base">
+        Setelah diaplikasikan pada area kulit yang bersih, komponen esensial akan dilepaskan secara berkala <em class="italic">(sustained-release)</em> dalam rentang waktu tertentu. Hal ini memastikan tubuh mendapatkan pasokan nutrisi yang konstan dan seimbang sepanjang hari tanpa fluktuasi yang ekstrem.
+      </p>
+
+      <p class="text-slate-700 leading-relaxed text-justify bg-slate-50 p-5 rounded-xl border border-slate-100">
+        <span class="font-bold text-blue-900 block mb-1 text-base">Mengapa metode ini dinilai jauh lebih efisien?</span> 
+        Dengan memotong jalur metabolisme pencernaan, formula terhindar dari risiko degradasi biologis. Pendekatan ini memastikan persentase zat aktif yang sampai ke target jaringan menjadi jauh lebih utuh dan optimal dibandingkan metode konvensional.
+      </p>
+
+      <div class="bg-blue-50/30 border border-blue-100 rounded-xl p-5 mt-6 block">
+        <span class="block font-bold text-blue-900 mb-1.5 text-xs uppercase tracking-wider">
+          📜 Validasi Sains: Standar Penghantaran Global
+        </span>
+        <p class="text-slate-600 leading-relaxed text-xs md:text-sm text-justify">
+          Teknologi penghantaran komponen via kulit secara transdermal merupakan metode yang valid dan jamak diterapkan dalam sains biomedis internasional. Penggunaan sistem penyerapan ini ditujukan untuk memberikan kenyamanan pemeliharaan kondisi tubuh, menjaga bioavailabilitas zat, serta menghindari beban kerja berlebih pada sistem filtrasi organ internal.
+        </p>
+      </div>
+    </div>
+
+    <div class="mt-16 block">
+      <div class="text-center font-extrabold text-slate-900 leading-snug mb-6 text-lg md:text-xl max-w-xl mx-auto px-4 tracking-tight">
+        Analisis Komparatif Efisiensi Metode Pemeliharaan Stamina
+      </div>
+
+      <div class="leading-relaxed text-slate-700 max-w-3xl mx-auto text-sm md:text-base space-y-6"">
+        <table class="w-full border-collapse text-left text-xs md:text-sm min-w-[550px]">
+          <thead>
+            <tr class="bg-slate-50 border-b border-slate-200">
+              <th class="p-4 font-bold text-slate-700 w-1/4">Faktor Analisis</th>
+              <th class="p-4 font-semibold text-slate-500 bg-slate-100/50 text-center w-3/8">Metode Oral (Diminum)</th>
+              <th class="p-4 font-bold bg-emerald-600 text-white text-center rounded-t-xl w-3/8">Sistem Transdermal (Tempel)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-200 text-slate-600">
+            <tr>
+              <td class="p-4 font-semibold text-slate-900 bg-slate-50/50">Proses Penyerapan</td>
+              <td class="p-4 bg-slate-50/10">Melalui fase pemecahan zat asam lambung serta filtrasi organ hati.</td>
+              <td class="p-4 bg-emerald-50/20 text-emerald-800 font-bold text-center">Langsung berdifusi via pori kulit secara konstan menuju pembuluh sirkulasi.</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-slate-900 bg-slate-50/50">Stabilitas Kadar Zat</td>
+              <td class="p-4 bg-slate-50/10">Menciptakan lonjakan kadar sesaat di dalam tubuh sebelum akhirnya menurun drastis.</td>
+              <td class="p-4 bg-emerald-50/20 text-emerald-900 font-extrabold text-center text-sm">Menjaga kadar konsentrasi nutrisi tetap stabil secara berkala sepanjang hari.</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-slate-900 bg-slate-50/50">Beban Organ Filtrasi</td>
+              <td class="p-4 bg-slate-50/10">Menyisakan sisa residu penguraian pencernaan yang harus disaring berkala.</td>
+              <td class="p-4 bg-emerald-50/20 text-emerald-900 font-extrabold text-center">Sangat minim residu karena zat aktif terhantar secara murni ke pembuluh darah.</td>
+            </tr>
+            <tr>
+              <td class="p-4 font-semibold text-slate-900 bg-slate-50/50">Durasi & Kepraktisan</td>
+              <td class="p-4 bg-slate-50/10">Waktu paruh relatif singkat, menuntut frekuensi konsumsi berulang dalam sehari.</td>
+              <td class="p-4 bg-emerald-50/20 text-emerald-800 font-bold text-center">Efisien. Satu kali aplikasi mampu menghantarkan formula aktif hingga 24–48 jam.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="text-center font-bold text-emerald-700 mt-12 text-sm md:text-base max-w-xl mx-auto leading-relaxed tracking-wide uppercase">
+        "Pilihan Cerdas untuk Efisiensi Pemeliharaan Kebugaran dan Kenyamanan Aktivitas Jangka Panjang Anda."
+      </div>
+    </div>
+
+  </div>
+</section>
+    
+<section id="testi" class="bg-white w-full px-4 py-12 md:py-20 border-b border-slate-100 block mb-16">
+  <div class="max-w-6xl mx-auto">
+    
+    <h3 class="text-center font-extrabold text-slate-900 leading-snug mb-10 text-xl md:text-3xl max-w-3xl mx-auto tracking-tight">
+      Bagaimana kesaksian beliau setelah rutin memakai produk ini?
+    </h3>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
+      
+      <div class="flex flex-col justify-center">
+        <div id="testi-caption" class="border-l-4 border-emerald-500 bg-slate-50/80 rounded-r-xl px-5 py-5 text-sm md:text-base text-slate-700 leading-relaxed text-justify shadow-sm">
+          Awalnya sempat membandingkan secara skeptis, namun praktisi kesehatan ini akhirnya mengakui efisiensi metode ini and menjadi pengguna aktif setelah memvalidasi langsung stabilitas bioavailabilitasnya yang teruji secara global.
+        </div>
+      </div>
+
+      <div class="w-full max-w-md mx-auto md:max-w-none">
+        <script src="https://fast.wistia.com/player.js" async></script><script src="https://fast.wistia.com/embed/p1zx25mukt.js" async type="module"></script><style>wistia-player[media-id='p1zx25mukt']:not(:defined) { background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/p1zx25mukt/swatch'); display: block; filter: blur(5px); padding-top:56.11%; }</style> <wistia-player media-id="p1zx25mukt" aspect="1.7821782178217822"></wistia-player>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="kontak-kami" class="bg-gradient-to-br from-slate-50 via-teal-50/30 to-emerald-50/50 py-12 md:py-20 px-4 md:px-8 text-slate-800 overflow-hidden block border-b border-slate-200">
+  
+  <div class="max-w-6xl mx-auto mt-10 md:mt-16">
+    
+    <h2 class="text-center text-slate-800 mb-3 text-2xl md:text-3xl font-bold flex items-center justify-center gap-2 tracking-tight">
+      👥 Mengenal Lebih Dekat Perwakilan Resmi Anda
+    </h2>
+    
+    <div class="text-center text-slate-500 text-xs md:text-sm mb-10 flex flex-col items-center justify-center gap-1 font-medium">
+      <span class="text-blue-600 font-extrabold text-sm md:text-base tracking-wide uppercase">
+        🏅 Stokis Resmi MCI One More Indonesia
+      </span>
+      <span class="text-slate-600">
+        📍 Pusat Distribusi & Pendampingan: <span class="text-slate-800 font-bold">Bekasi, Jawa Barat, Indonesia</span>
+      </span>
+    </div>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-5xl mx-auto mb-10 items-stretch">
+      
+      <div class="bg-slate-50 p-6 md:p-8 rounded-xl shadow-md text-center border-t-4 border-blue-600 flex flex-col justify-between transition-all duration-300 hover:shadow-lg">
+        <div>
+          <div class="w-28 h-28 mx-auto mb-4 rounded-full bg-slate-200 overflow-hidden border-2 border-blue-100 flex items-center justify-center">
+             <img src="https://res.cloudinary.com/dbnwkc0j0/image/upload/v1782475758/Admin_stokis-rianisti2_Edited_iumkdd.webp" loading="lazy" alt="Rian Isti" class="w-full h-full object-cover">
+          </div>
+          <p class="text-lg font-bold text-slate-800 mb-1">Rian Isti</p>
+          <span class="inline-block bg-blue-100 text-blue-800 py-1 px-3 rounded-full text-[11px] font-bold tracking-wide mb-4">
+            Layanan Stokis & Program Kerja
+          </span>
+        </div>
+        
+        <a 
+          href="https://wa.me/6281329062626?text=Halo%20Layanan%20Resmi,%20saya%20tertarik%20ingin%20konsultasi%20mengenai%20teknologi%20kebugaran%20dan%20peluang%20pengembangan%20tim" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          onclick="window.location.href=this.href; return false;"
+          class="block w-full bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-xl text-center shadow transition-all hover:scale-[1.02] active:scale-95 duration-200 mt-2 focus:outline-none relative z-[999]"
+        >
+          <strong class="block text-xs font-bold mb-0.5 tracking-wide uppercase">Hubungi Admin 1</strong>
+          <span class="block text-[10px] opacity-90">Layanan Stokis & Program (Fast Response)</span>
+        </a>
+      </div>
+
+      <div class="bg-slate-50 p-6 md:p-8 rounded-xl shadow-md text-center border-t-4 border-emerald-600 flex flex-col justify-between transition-all duration-300 hover:shadow-lg">
+        <div>
+          <div class="w-28 h-28 mx-auto mb-4 rounded-full bg-slate-200 overflow-hidden border-2 border-emerald-100 flex items-center justify-center">
+            <img src="https://res.cloudinary.com/dbnwkc0j0/image/upload/v1782475758/Avatar_SIGITS_dlzbg6.webp" loading="lazy" alt="Sigit" class="w-full h-full object-cover">
+          </div>
+          <p class="text-lg font-bold text-slate-800 mb-1">Sigit</p>
+          <span class="inline-block bg-emerald-100 text-emerald-800 py-1 px-3 rounded-full text-[11px] font-bold tracking-wide mb-4">
+            Konsultan Informasi & Edukasi
+          </span>
+        </div>
+        
+        <a 
+          href="https://wa.me/6282125032131?text=Halo%20Admin%20Sigit,%20saya%20ingin%20tanya%20mengenai%20pola%20pemeliharaan%20kebugaran%20dan%20informasi%20programnya" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          onclick="window.location.href=this.href; return false;"
+          class="block w-full bg-emerald-600 hover:bg-emerald-700 text-white p-3 rounded-xl text-center shadow transition-all hover:scale-[1.02] active:scale-95 duration-200 mt-2 focus:outline-none relative z-[999]"
+        >
+          <strong class="block text-xs font-bold mb-0.5 tracking-wide uppercase">Hubungi Admin 2</strong>
+          <span class="block text-[10px] opacity-90">Konsultasi Informasi & Edukasi</span>
+        </a>
+      </div>
+    </div>
+    
+    <div class="max-w-5xl mx-auto bg-slate-50 border border-slate-200 rounded-xl p-5 md:p-6 mb-6 flex flex-col sm:flex-row items-center gap-4 shadow-sm text-left">
+      <div class="text-3xl sm:pl-2">🛡️</div>
+      <div class="text-center sm:text-left">
+        <p class="text-sm font-bold text-slate-800 mb-1">Jaminan Validitas Stokis Resmi Terverifikasi</p>
+        <p class="text-xs text-slate-500 leading-relaxed">
+          Kami merupakan representasi resmi jalur distribusi penyuplai produk tepercaya. Setiap manajemen program kerja harian, penyaluran produk, serta modul bimbingan edukasi berjalan di bawah koordinasi langsung ekosistem pusat guna menjamin keaslian komitmen dan mutu layanan 100%.
+        </p>
+      </div>
+    </div>
+
+    <p class="max-w-5xl mx-auto text-center leading-relaxed text-slate-600 text-xs sm:text-sm px-4">
+      Kami berkomitmen penuh untuk mendampingi langkah awal Anda secara profesional. Dengan mengintegrasikan sistem distribusi logistik yang andal serta penyediaan informasi yang transparan, kami siap membantu Anda mengoptimalkan pemanfaatan produk sekaligus menangkap peluang tumbuh bersama ekosistem komunitas terpadu ini.
+    </p>
+  </div>
+</section>
+
+
+<footer class="bg-slate-900 text-slate-400 py-8 px-4 text-center border-t border-slate-800/80 block">
+  <div class="max-w-5xl mx-auto space-y-4">
+    
+    <div class="flex justify-center gap-4 text-[11px] font-semibold tracking-wide">
+      <button 
+        type="button" 
+        onclick="bukaPrivacyModal()" 
+        class="text-slate-300 hover:text-white transition-colors cursor-pointer focus:outline-none bg-transparent border-none p-0 flex items-center gap-1"
+      >
+        🛡️ Kebijakan Privasi & Ketentuan Layanan
+      </button>
+    </div>
+    
+    <p class="text-[10.5px] text-slate-400 tracking-wide font-medium">
+      &copy; 2026 Hak Cipta Dilindungi. Tim Distribusi & Informasi Kemitraan Mandiri.
+    </p>
+
+    <div class="max-w-3xl mx-auto text-[10px] text-slate-400/80 leading-normal tracking-wide pt-3 border-t border-slate-800/60 text-justify md:text-center space-y-2 font-normal">
+      <p>
+        <span class="font-bold text-slate-300">Disclaimer Produk:</span> 
+        Respons atau capaian fisik setiap individu dapat bervariasi bergantung pada metabolisme tubuh, riwayat kebugaran, serta keteraturan penerapan metode penunjang.
+      </p>
+      <p>
+        <span class="font-bold text-slate-300">Disclaimer Platform:</span> 
+        Situs web ini dikelola secara independen oleh representasi promotor mandiri untuk keperluan edukasi informasi dan sama sekali tidak berafiliasi, diendors, atau dikelola oleh Meta Platforms, Inc. atau Facebook, Inc. FACEBOOK dan META adalah merek dagang dari Meta Platforms, Inc.
+      </p>
+    </div>
+
+  </div>
+</footer>
+
+<div id="privacy-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm transition-opacity duration-300">
+  <div class="bg-white text-slate-800 w-full max-w-2xl rounded-2xl shadow-2xl flex flex-col max-h-[85vh] transform scale-95 transition-transform duration-300" id="modal-container">
+    
+    <div class="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50 rounded-t-2xl">
+      <h3 class="text-xs font-bold text-slate-800 uppercase tracking-wide flex items-center gap-2">
+        🛡️ Privacy Policy & Terms of Service
+      </h3>
+      <button type="button" onclick="tutupPrivacyModal()" class="text-slate-400 hover:text-slate-600 font-bold text-lg p-1 focus:outline-none cursor-pointer">
+        &times;
+      </button>
+    </div>
+
+    <div class="p-6 overflow-y-auto text-xs sm:text-sm text-slate-600 leading-relaxed space-y-4 text-left">
+      <p class="font-semibold text-slate-800">Terakhir Diperbarui: Juni 2026</p>
+      
+      <h4 class="font-bold text-slate-900 text-sm border-b border-slate-100 pb-1 uppercase tracking-wide">I. Kebijakan Privasi (Privacy Policy)</h4>
+      <p>
+        Kami sangat berkomitmen untuk menjaga dan melindungi privasi data pribadi Anda selaku pengunjung situs web ini. Bagian ini menjelaskan bagaimana data Anda dikelola secara aman:
+      </p>
+      <ul class="list-disc pl-5 space-y-1">
+        <li><strong>Pengumpulan Data:</strong> Kami hanya mengumpulkan informasi identitas dasar berupa Nama Lengkap, Domisili (Kota), serta jenis program acara yang Anda pilih secara sadar melalui formulir konfirmasi di halaman ini.</li>
+        <li><strong>Tujuan Penggunaan:</strong> Seluruh data diolah secara internal guna keperluan verifikasi tiket masuk ruang virtual serta membantu mempermudah tim perwakilan kami dalam mengirimkan instruksi akses langsung melalui aplikasi komunikasi WhatsApp.</li>
+        <li><strong>Perlindungan Informasi:</strong> Kami menerapkan proteksi teknis berkala dan menjamin 100% bahwa data pribadi Anda tidak akan pernah dijual, disebarluaskan, atau disalahgunakan kepada pihak ketiga mana pun di luar ekosistem tim distribusi kami.</li>
+      </ul>
+
+      <h4 class="font-bold text-slate-900 text-sm border-b border-slate-100 pb-1 pt-3 uppercase tracking-wide">II. Syarat & Ketentuan (Terms of Service)</h4>
+      <p>
+        Dengan mengakses halaman ini serta memanfaatkan fitur formulir interaktif di dalamnya, Anda secara otomatis menyetujui seluruh ketentuan layanan berikut:
+      </p>
+      <ul class="list-disc pl-5 space-y-1">
+        <li><strong>Persetujuan Kontak (Consent):</strong> Anda memberikan izin dan hak penuh bagi perwakilan tim kami untuk memproses informasi dan menghubungi nomor WhatsApp Anda kembali guna mengirimkan tautan ruang virtual serta detail koordinasi terkait.</li>
+        <li><strong>Akurasi Data:</strong> Pengguna berkewajiban mengisi data identitas asli demi kelancaran proses validasi pengiriman link masuk program edukasi komunitas harian.</li>
+        <li><strong>Batasan Tanggung Jawab:</strong> Seluruh materi yang disampaikan di dalam program merupakan sarana informasi dan edukasi mandiri. Kami tidak bertanggung jawab atas tindakan penyimpangan atau ketidaksesuaian penerapan metode di luar bimbingan resmi komunitas.</li>
+      </ul>
+    </div>
+
+    <div class="p-4 border-t border-slate-100 bg-slate-50 rounded-b-2xl flex justify-end">
+      <button 
+        type="button" 
+        onclick="tutupPrivacyModal()" 
+        class="bg-slate-800 hover:bg-slate-700 text-white px-5 py-2 rounded-lg text-xs font-bold transition-colors cursor-pointer focus:outline-none shadow-sm"
+      >
+        Saya Mengerti & Tutup
+      </button>
+    </div>
+
+  </div>
+</div>
+
+  <script>
+    let isMobileMenuOpen = false;
+
+    // --- Mengontrol Wistia Hero Iframe ---
+    const wistiaIframes = document.querySelectorAll('.video-wistia');
+
+    function controlWistia(iframe, command) {
+      if (iframe.contentWindow) {
+        iframe.contentWindow.postMessage(JSON.stringify({
+          "wistiaEmbedPlayer": true,
+          "method": command
+        }), "*");
+      }
+    }
+
+    const wistiaObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const iframe = entry.target;
+        if (entry.isIntersecting) {
+          if (iframe.dataset.wasPlaying === 'true') {
+            controlWistia(iframe, "play");
+          }
+        } else {
+          iframe.dataset.wasPlaying = 'true';
+          controlWistia(iframe, "pause");
+        }
+      });
+    }, { threshold: 0.25 });
+
+    wistiaIframes.forEach(iframe => wistiaObserver.observe(iframe));
+
+
+    // Sinkronisasi target ID seksi di HTML
+    const navItemsList = ['hero', 'edukasi', 'testi', 'kontak-kami'];
+
+    // 1. Logika Efek Scroll Ganti Background & Deteksi Seksi Aktif (Scroll Spy)
+    window.addEventListener('scroll', () => {
+      const navbarElement = document.getElementById('main-navbar');
+      const scrollPos = window.scrollY + 100;
+
+      if (window.scrollY > 10) {
+        navbarElement.classList.add('navbar-fixed');
+      } else {
+        navbarElement.classList.remove('navbar-fixed');
+      }
+
+      navItemsList.forEach(id => {
+        const targetSection = document.getElementById(id);
+        if (targetSection) {
+          const sectionTop = targetSection.offsetTop;
+          const sectionHeight = targetSection.offsetHeight;
+
+          if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+            updateActiveNavStyle(id);
+          }
+        }
+      });
+    });
+
+    // 2. Fungsi Pergeseran Lembut ke Target Seksi Saat Menu Di-klik
+    function scrollToNavSection(id) {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      if (isMobileMenuOpen) {
+        toggleMobileMenu();
+      }
+    }
+
+    // 3. Fungsi Kontrol Hamburger Menu Dropdown Mobile
+    function toggleMobileMenu() {
+      isMobileMenuOpen = !isMobileMenuOpen;
+      const dropdown = document.getElementById('mobile-menu-dropdown');
+      const iconMenu = document.getElementById('icon-menu');
+      const iconClose = document.getElementById('icon-close');
+
+      if (isMobileMenuOpen) {
+        dropdown.classList.remove('hidden');
+        iconMenu.classList.add('hidden');
+        iconClose.classList.remove('hidden');
+      } else {
+        dropdown.classList.add('hidden');
+        iconMenu.classList.remove('hidden');
+        iconClose.classList.add('hidden');
+      }
+    }
+
+    // 4. Manajemen Perubahan CSS Tombol Menu yang Aktif Mengikuti Posisi Layar
+    function updateActiveNavStyle(activeId) {
+      const deskButtons = document.getElementsByClassName('nav-desk-btn');
+      for (let btn of deskButtons) {
+        btn.className = 'nav-desk-btn px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-200 text-gray-700 hover:bg-blue-50 hover:text-blue-600 cursor-pointer';
+      }
+      const currentActiveDesk = document.getElementById(`nav-desk-${activeId}`);
+      if (currentActiveDesk) {
+        currentActiveDesk.className = 'nav-desk-btn px-4 py-2 rounded-lg font-semibold text-sm transition-all duration-200 bg-blue-600 text-white cursor-pointer';
+      }
+
+      const mobButtons = document.getElementsByClassName('nav-mob-btn');
+      for (let btn of mobButtons) {
+        btn.className = 'nav-mob-btn w-full text-left px-4 py-3 rounded-lg font-semibold text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 cursor-pointer';
+      }
+      const currentActiveMob = document.getElementById(`nav-mob-${activeId}`);
+      if (currentActiveMob) {
+        currentActiveMob.className = 'nav-mob-btn w-full text-left px-4 py-3 rounded-lg font-semibold text-sm bg-blue-600 text-white cursor-pointer';
+      }
+    } 
+     
+    // Modal Privacy
+    function bukaPrivacyModal() {
+      const modal = document.getElementById('privacy-modal');
+      const container = document.getElementById('modal-container');
+      
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      
+      setTimeout(() => {
+        container.classList.remove('scale-95');
+        container.classList.add('scale-100');
+      }, 10);
+      
+      document.body.style.overflow = 'hidden';
+    }
+
+    function tutupPrivacyModal() {
+      const modal = document.getElementById('privacy-modal');
+      const container = document.getElementById('modal-container');
+      
+      container.classList.remove('scale-100');
+      container.classList.add('scale-95');
+      
+      setTimeout(() => {
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+      }, 200);
+      
+      document.body.style.overflow = '';
+    }
+
+    window.addEventListener('click', function(event) {
+      const modal = document.getElementById('privacy-modal');
+      if (event.target === modal) {
+        tutupPrivacyModal();
+      }
+    });
+    
+    // === PROTEKSI MENONAKTIFKAN LINK DI VIDEO ===
+    document.addEventListener('click', function(e) {
+      const isInsideVideo = e.target.closest('iframe, video, .video-wistia');
+      
+      if (isInsideVideo) {
+        const link = e.target.closest('a[href^="https"], a[href^="http"], a[href^="//"]');
+        if (link) {
+          e.preventDefault();
+          e.stopPropagation();
+          return false;
+        }
+      }
+    }, true);
+  </script>
+</body>
+</html>
